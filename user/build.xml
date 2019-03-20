@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<project name="DXP Cloud Conversion" basedir=".">
+
+	<import file="../build-common.xml" />
+
+    <property name="purpose.dir" value="." />
+	<property name="doc.dir" value="user"/>
+
+</project>
