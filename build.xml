@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<project name="Liferay Documentation" default="usage" basedir=".">
+	<property name="project.dir" value="." />
+
+	<property name="build.dir" value="${project.dir}/build"/>
+
+	<path id="lib.classpath">
+		<fileset dir="${project.dir}/lib" includes="*.jar" />
+	</path>
+
+	<path id="project.classpath">
+		<path refid="lib.classpath" />
+	</path>
+
+	<target name="compare-portal-source" description="Generates reports comparing a Liferay 6 source directory (-Dlr6Dir) to a Liferay 7+ source directory (-Dlr7Dir).">
+		<property name="movedClassesFile" value="${build.dir}/moved-classes.html"/>
+		<property name="removedClassesFile" value="${build.dir}/removed-classes.html"/>
+		<mkdir dir="${build.dir}"/>
+		<java
+			classname="com.liferay.documentation.movedclassreporter.MovedClassReporterMain"
+			classpathref="project.classpath"
+			failonerror="true"
+			fork="true"
+		>
+			<arg value="${lr6Dir}"/>
+			<arg value="${lr7Dir}"/>
+			<arg value="${movedClassesFile}"/>
+			<arg value="${removedClassesFile}"/>
+		</java>
+	</target>
+
+	<target name="usage">
+		<echo message="Welcome to the Liferay Documentation project. To show target descriptions, run ant -projecthelp"/>
+	</target>
+
+</project>
