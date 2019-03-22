@@ -12,7 +12,7 @@ image          | String         | wedeploy/hosting | Service image from Docker H
 env            | Object         | undefined      | Environment variables |
 port           | Number         | 80             | Exposed service port |
 cpu            | Number         | 1              | Number of processing units |
-scale          | Number         | 1              | Maximum number of instances  |
+scale          | Number         | 1              | Starting number of instances  |
 memory         | Number         | 512            | Amount of computing memory (in MB) |
 volumes        | Object         | undefined      | Paths to persist data |
 customDomains  | Array          | []             | Set custom domain names |
