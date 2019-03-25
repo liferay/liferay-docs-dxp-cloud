@@ -1,100 +1,104 @@
 # Health Checks and Zero-downtime Deployments
 
-Health Checks are primarily useful for two things: validating deployment success 
-and enabling accurate service self-healing. 
+Health Checks are primarily useful for validating deployment success and 
+enabling accurate service self-healing. 
 
 ## Validating Deployment Success
 
-When deploying a service, our default behavior is to make sure the container in
-the background of your service is up and running. At that point, we will say
-your deployment was successful. In many cases, this is not enough to truly
-validate if the deployment was complete and ready.
-
-To add custom checks, you can use our Health Check feature to specify a custom
-URL or command to check before declaring your service is healthy.
+When deploying a service, DXP Cloud's default behavior is to make sure the 
+container in your service's background is up and running. At that point, DXP 
+Cloud considers your deployment successful. In many cases, however, this isn't 
+enough to truly determine if the deployment is complete and ready. To add custom 
+checks, use DXP Cloud's Health Check feature to specify a custom URL or command 
+to check before declaring your service is healthy. For more information, see 
+[Custom Health Checks](#custom-health-checks). 
 
 ## Accurate Service Self Healing
 
-Once your service has successfully deployed, it is important that you always
-know it's health status. We are always running a health check on your service
-and if we notice the health check fail then we will replace your service with a
-new one.
+Once your service is successfully deployed, it's important that you always know 
+its health status. DXP Cloud constantly checks your service's health. If a 
+health check fails, DXP Cloud replaces your service with a new one. This 
+self-healing feature also works with custom health checks, which are discussed 
+next. 
 
-This is a powerful self-healing feature, but unless you have accurate Health
-Checks, we may not know that your service needs to be replaced.
+## Custom Health Checks
 
-To add custom checks, you can use our Health Check feature to specify a custom
-URL or command to check before declaring your service is healthy.
+To perform a custom health check, you must specify it via the `healthCheck` 
+property in `wedeploy.json`. The following sections show you how to do this for 
+a URL and a command.
 
-## Custom health Checks
+### Checking with a URL
 
-### Checking with URL
+To perform a custom health check with a URL, set the `url` property to the URL. 
+To perform the check, DXP Cloud pings that address until receiving a `200` 
+response.
 
-If you provide a URL, we will ping that address until we get a `200` response.
-
-Here is an example of the URL approach:
-
-    {
-     "id": "dxp",
-     "healthCheck": {
-      "url": "localhost"
-     }
-    }
-
-By putting `localhost` as the health check URL, we will ping the IP of your
-service. You could also specify a specific path like `localhostcompany.com/blog`
-or a certain port like `localhost:4000`.
-
-### Checking With Command
-
-For more complex health checks, you can add commands to check the uptime of your
-service.
+This example sets `url` to `localhost`:
 
     {
-     "id": "db",
-     "healthCheck": {
-      "command": "curl -X GET --silent --fail 'localhost'"
-     }
+      "id": "dxp",
+      "healthCheck": {
+        "url": "localhost"
+      }
     }
 
-With both of these approaches, we provide you with other customizable
-configurations:
+With `localhost` as the health check's URL, DXP Cloud pings your service's IP 
+address. Note, however, that you can use any URL here. For example, you could 
+specify a path like `localhostcompany.com/blog` or a specific port like 
+`localhost:4000`. 
 
--   `interval`: How many seconds should pass between health check tries. The 
+### Checking with a Command
+
+For more complex health checks, you can add commands via the `command` property. 
+Here's an example:
+
+    {
+      "id": "db",
+      "healthCheck": {
+        "command": "curl -X GET --silent --fail 'localhost'"
+      }
+    }
+
+### Additional Properties
+
+You can use additional properties to customize both the `url` and `command` 
+health checks. Here's a list of these properties: 
+
+-   `interval`: The number of seconds that pass between health checks. The 
     default value is `30`.
--   `timeout`: How long we will wait for your service to answer. The default 
-    value is `30`.
--   `startPeriod`: How many seconds the `healthCheck` should wait before 
+-   `timeout`: The number of seconds DXP Cloud waits for your service to answer. 
+    The default value is `30`. 
+-   `startPeriod`: The number of seconds the `healthCheck` should wait before 
     testing. The default value is `0`. 
--   `retries`: How many times the `healthCheck` will retry before declaring your 
-    service as `unhealthy`. The default value is `3`.
+-   `retries`: The number times the `healthCheck` will retry before declaring 
+    your service unhealthy. The default value is `3`. 
 
-Usage example:
+For example: 
 
     {
-     "id": "db",
-     "healthCheck": {
-      "command": "curl -X GET --silent --fail 'localhost'",
-      "interval": 5,
-      "timeout": 5,
-      "startPeriod": 1,
-      "retries": 10
-     }
+      "id": "db",
+      "healthCheck": {
+        "command": "curl -X GET --silent --fail 'localhost'",
+        "interval": 5,
+        "timeout": 5,
+        "startPeriod": 1,
+        "retries": 10
+      }
     }
 
-## Zero Downtime Deployments
+## Zero-downtime Deployments
 
-Configuring a service to have zero downtime means that it will have 100%
-of uptime during new deployments. By default, all services have this
-configuration as `true`. If you want to turn it off, you can set it to
-`false` in your `wedeploy.json`.
+Configuring a service to have zero downtime means that it will have 100% uptime 
+during new deployments. Zero-downtime deployments are enabled by default. If you 
+want to turn this off, set the `zeroDowntime` property in your `wedeploy.json` 
+to `false`: 
 
     {
       "id": "dxp",
       "zeroDowntime": false
     }
 
-## Using Health Checks with Zero Downtime Deployments
+## Using Health Checks with Zero-downtime Deployments
 
 We saw that when adding a `healthCheck` to your service, it means that we are
 going to check your service until we receive a 200 response code. This is used

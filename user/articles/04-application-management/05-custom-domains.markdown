@@ -1,40 +1,39 @@
 # Custom Domains
 
-## Pointing Your Domain to DXP Cloud Service
+## Pointing Your Domain to a DXP Cloud Service
 
-To add a custom domain to a DXP Cloud service you must point your domain to your
-service URL. To do this, you have to use a Domain Management Tool (DMT) and
-create CNAME records to map your domain to a DXP Cloud service. First, go to
-your domain provider configuration and add the servers addresses to the Master
-and Slave entries. These addresses are provided by the DMT you've chosen.
+To add a custom domain to a DXP Cloud service, you must point that domain to the
+service's URL. To do this, you must use a Domain Management Tool (DMT) and 
+create CNAME records to map the domain to the DXP Cloud service. First, go to 
+your domain provider configuration and add the servers' addresses to the master
+and slave entries. These addresses are provided by the DMT you're using. 
 
-**Note:** Some domain providers allow you to add CNAME entries. This way, you do
-not need to use a DMT.
+**Note:** Some domain providers let you add CNAME entries. In this case, you 
+don't need to use a DMT. 
 
-Once you are pointing your domain to a DMT, you can add a CNAME entry to each
-domain or subdomain you want to add. The value for the full domain can be either
+Once you point your domain to a DMT, you can add a CNAME entry to each domain or 
+subdomain you want to add. The value for the full domain can be either 
 `dns.us-west-1.liferay.cloud` or the service URL. 
 
-![Figure 1: This example uses Cloudfare as a DMT to point your domain to the DXP Cloud DNS servers.](../../images/cloudflare-ss2.png)
+![Figure 1: This example uses Cloudflare as a DMT to point a domain to the DXP Cloud DNS servers.](../../images/cloudflare-ss2.png)
 
 ## Adding Your Domain to Your Service
 
-Once you have pointed your domain to a DXP Cloud service, you are able to add
-your domain to your service. There are two ways to add your domain to a service; 
-via the Web Console or the `wedeploy.json`. 
+Once you have pointed your domain to a DXP Cloud service, you can add your 
+domain to your service. You can do this via the web console or `wedeploy.json`. 
 
 ### Adding Your Domain via the Web Console
 
 Go to your environment page, select the service you want to add your custom
-domain to, click the *Custom Domains* tab, and add your domains there. You can 
-check if your certificate was properly created by going to the Activities page.
+domain to, click the *Custom Domains* tab, and add your domains. You can check 
+if your certificate was properly created by going to the Activities page. 
 
-![Figure 2: Select the Custom Domains tab.](../../images/custom-domain-web-console.png)
+![Figure 2: Select the Custom Domains tab and add your domains.](../../images/custom-domain-web-console.png)
 
 ### Adding Your Domain via wedeploy.json
 
-You can also add your custom domain via `wedeploy.json` through the 
-`customDomains` property: 
+You can also add your custom domain via the `customDomains` property in 
+`wedeploy.json`: 
 
     {
       "id": "liferay",
