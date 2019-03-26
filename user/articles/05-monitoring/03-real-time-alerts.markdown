@@ -1,16 +1,17 @@
 # Real-time Alerts
 
-Receiving alerts about your project status helps you to always be the first to
-know of any unexpected behavior. You can manage your alerts by choosing how and
-which type you want to receive.
+Alerts inform you of any unexpected behavior in your project. You can therefore 
+respond quickly whenever problems occur. You can choose which alerts to receive 
+and how you receive them. 
 
 ## Alert Preferences
 
-You can configure your alerts by clicking on your profile photo located at the
-top-right corner of console page and selecting the *Alerts Preferences* option.
-After clicking there, you will be redirected to the alerts preferences page
-where you will be able to select how and which kind of alerts you want to
-receive. 
+You can configure your alerts by clicking your profile photo at the top-right 
+corner of the console page and selecting *Alerts Preferences*. This takes you to 
+the alerts preferences page, where you can configure which alerts you receive 
+and how you receive them. For each alert, select the checkbox for how you wish 
+to receive it. Unselect all checkboxes to disable the alert. Click 
+*Save Alerts Preferences*. 
 
 ![Figure 1: Access your alert preferences via your user menu.](../../images/alerts-prefs-menu.png)
 
@@ -18,15 +19,11 @@ receive.
 
 ## Alerts Page
 
-Alerts that are delivered to your Console will be accessible by clicking the
-bell icon on the top bar. There, you can filter the alerts by environment and
-mark an alert as read when you are finished with it.
+Alerts delivered to your console are accessible from the bell icon on the top 
+bar. There, you can filter alerts by environment and mark them as read. Each 
+alert is triggered by a specific event. If the event is still happening, its 
+alert status is *Ongoing*. If the event is finished, its alert status is 
+*Resolved*. The table also contains *Started at* and *Duration* columns that 
+tell you when the event started and how long it lasted, respectively. 
 
-![Figure 3: Alerts appear in a table.](../../images/alerts-page.png)
-
-## Triggering Alerts
-
-All the alerts are triggered by a specific event. If this event is still
-happening, the alert status will declare that its *Ongoing*. If it is finished,
-it will say *Resolved* and then tell you when the alert started and how long it
-endured.
+![Figure 3: Each alert appears in a table. Use the selector menus to filter the alerts and mark them as read.](../../images/alerts-page.png)
