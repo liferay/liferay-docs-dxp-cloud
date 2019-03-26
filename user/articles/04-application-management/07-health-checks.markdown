@@ -100,15 +100,10 @@ to `false`:
 
 ## Using Health Checks with Zero-downtime Deployments
 
-We saw that when adding a `healthCheck` to your service, it means that we are
-going to check your service until we receive a 200 response code. This is used
-to define the health of a service. 
+When you combine health checks with zero-downtime deployments, a health check 
+first determines if the new service is healthy. If it is, then the new service 
+instance is deployed and replaces the old one. 
 
-When you set `zeroDowntime` as `true` (default), it means that any time you
-redeploy your service, a new instance is deployed and your current service keeps
-running. When the new instance is determined to be `healthy` by the health
-check, we replace the older service instance with the newer one. 
-
-On the other hand, when we configure `zeroDowntime` to `false`, it means that
-your current instance will be down during the deployment process. Once the new
-instance is determined to be `healthy`, the service will be up again. 
+If zero-downtime deployments are off, the current service instance is down 
+while a health check ensures that the new service instance is healthy. If the 
+new service is healthy, deployment completes and the service is up again. 
