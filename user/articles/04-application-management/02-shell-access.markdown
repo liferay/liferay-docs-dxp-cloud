@@ -17,10 +17,10 @@ access, and click the *Shell* tab.
 
 ## Accessing the Shell via a Terminal
 
-You can also access your service's shell via a terminal. To do so, run the 
-command `we shell` and select the service to access. Once you select it, you can 
-run any command that you want. 
-<!-- Do you have to install and/or connect to something for this command to work? -->
+You can also access your service's shell via a terminal. After 
+[installing the DXP Cloud command line tool](https://help.liferay.com/hc/en-us/articles/360015214691-Command-line-Tool), 
+run the command `we shell` and select the service to access. Once you select it, 
+you can run any command that you want. 
 
 ![Figure 2: You can also access the shell via the command line.](../../images/shell-cli.png)
 
