@@ -3,10 +3,10 @@
 Every environment has its own private network. This allows services from the
 same environment to communicate through multiple secure communication protocols. 
 For example, to connect a Liferay DXP instance hosted on your local machine to a 
-database hosted on DXP Cloud, the database must provide an HTTP interface. If 
-the Liferay DXP instance is also hosted on the same DXP Cloud environment, 
-however, you can refer to the database via its service ID and therefore bypass 
-the need for an HTTP interface. 
+database hosted on DXP Cloud, the database must provide an HTTP interface. 
+However, if the Liferay DXP instance is also hosted on the same DXP Cloud 
+environment, you can refer to the database via its service ID and therefore 
+bypass the need for an HTTP interface. 
 
 Every service in an environment is reachable through its ID. You can therefore 
 communicate between services by passing the service ID as the address. For 
