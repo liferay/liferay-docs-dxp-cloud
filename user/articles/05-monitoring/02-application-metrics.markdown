@@ -1,4 +1,4 @@
-# Application Metrics Overview
+# Application Metrics
 
 With DXP Cloud's built-in monitoring, you can track the following information 
 about your service: 
