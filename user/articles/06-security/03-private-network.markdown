@@ -1,4 +1,4 @@
-# Private Networks
+# Private Networks [](id=private-networks)
 
 Every environment has its own private network. This allows services from the
 same environment to communicate through multiple secure communication protocols. 
@@ -37,7 +37,7 @@ your `portal-ext.properties` file like this:
 
 Note that the ID (`mysql`) functions as the URL to call the MySQL service. 
 
-## Configure a Service as Private
+## Configure a Service as Private [](id=configure-a-service-as-private)
 
 By default, all services are available for public access via their DXP Cloud
 URLs. To make a service private, set the `public` key to false: 

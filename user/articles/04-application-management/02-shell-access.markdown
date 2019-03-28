@@ -1,4 +1,4 @@
-# Shell Access
+# Shell Access [](id=shell-access)
 
 The command-line tools in DXP Cloud contribute to the developer's workflow by 
 delivering speed, control, traceability, scripting, and automation capabilities. 
@@ -7,7 +7,7 @@ For example, you can use shell access to look for side effects not easily
 spotted in the logs. You can also call functions for data population or report 
 generation that are meant to be performed once. 
 
-## Accessing the Shell via the Web Console
+## Accessing the Shell via the Web Console [](id=accessing-the-shell-via-the-web-console)
 
 You can access the shell via the DXP Cloud web console. Go to your environment
 page, click *Services* in the menu on the left, select the service you want to 
@@ -15,7 +15,7 @@ access, and click the *Shell* tab.
 
 ![Figure 1: You can access the shell via DXP Cloud's web console.](../../images/shell-web-console.png)
 
-## Accessing the Shell via a Terminal
+## Accessing the Shell via a Terminal [](id=accessing-the-shell-via-a-terminal)
 
 You can also access your service's shell via a terminal. After 
 [installing the DXP Cloud command line tool](https://help.liferay.com/hc/en-us/articles/360015214691-Command-line-Tool), 
@@ -29,7 +29,7 @@ this command instead:
 
     we shell -p projectID -s serviceID
 
-## Shell Limitations
+## Shell Limitations [](id=shell-limitations)
 
 The shell is a great tool to troubleshoot or perform one-time actions on your
 service, but it's not intended for permanent changes. This is because when you 

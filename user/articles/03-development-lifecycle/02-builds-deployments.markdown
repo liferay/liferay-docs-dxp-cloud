@@ -1,6 +1,6 @@
-# Builds and Deployments
+# Builds and Deployments [](id=builds-and-deployments)
 
-## Builds
+## Builds [](id=builds)
 
 Your application must first go through a build phase before it can be deployed 
 to an environment. This initial build phase is when DXP Cloud gets the Docker 
@@ -12,7 +12,7 @@ the top-right side of each environment page.
 
 ![Figure 1: The builds tab lists the builds in your environment.](../../images/builds.png)
 
-## Deployments
+## Deployments [](id=deployments)
 
 If your service builds without errors, then it can be deployed to an 
 environment. Once triggered, this deployment process pushes the build to the 
@@ -25,7 +25,7 @@ To access the deployment page, go to your environment page and click the
 
 ![Figure 2: The builds tab lists the builds in your environment.](../../images/deployments.png)
 
-## Deploying to Different Environment
+## Deploying to Different Environment [](id=deploying-to-different-environment)
 
 When you deploy a build, it deploys by default to the same environment it was 
 built in. To deploy it to a different environment, select *Deploy Build to* from 

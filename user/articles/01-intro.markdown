@@ -1,11 +1,11 @@
-# What is Liferay DXP Cloud?
+# What is Liferay DXP Cloud? [](id=what-is-liferay-dxp-cloud)
 
 Liferay DXP Cloud is a secure, reliable enterprise cloud platform (PaaS) that 
 simplifies the deployment, management, and scaling of Liferay DXP. DXP Cloud 
 provides autoscaling, development tools, environments, monitoring, and much 
 more, all designed with years of in-house Liferay expertise.
 
-## Features
+## Features [](id=features)
 
 DXP Cloud contains a suite of features that enables DevOps teams to deploy 
 faster and with more confidence and security. Here are some of the 

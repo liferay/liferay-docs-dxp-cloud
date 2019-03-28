@@ -1,4 +1,4 @@
-# Backup Service
+# Backup Service [](id=backup-service)
 
 The backup service creates regular backups of your Liferay DXP database and
 Document Library. Here, you'll find all the details you'll need to configure the 
@@ -6,7 +6,7 @@ backup service to suit your needs.
 
 ![Figure 1: The backup service is one of several services available in DXP Cloud.](../../images/services-backups.png)
 
-## Environment Variables
+## Environment Variables [](id=environment-variables)
 
 Use the following environment variables in your `wedeploy.json` file to achieve 
 your data redundancy goals.
@@ -20,7 +20,7 @@ Name | Default Value | Description |
 `WEDEPLOY_BACKUP_RETENTION_PERIOD` | `30` | Number of days to retain your backups. Note that the maximum retention period for backups is 30 days, even if you set this to a longer period of time. |
 `WEDEPLOY_BACKUP_CLEANUP_SCHEDULE` | `0 1 * * *` | The cleanup schedule for backups outside the retention period. |
 
-## Scheduling
+## Scheduling [](id=scheduling)
 
 You can customize the backup service's scheduling via 
 [Cron scheduling syntax](https://crontab.guru/). 
@@ -29,7 +29,7 @@ This scheduling can be used for the following variables:
 -   `WEDEPLOY_BACKUP_CREATE_SCHEDULE`
 -   `WEDEPLOY_BACKUP_CLEANUP_SCHEDULE`
 
-### Customizing Scheduling
+### Customizing Scheduling [](id=customizing-scheduling)
 
     * * * * *
     ┬ ┬ ┬ ┬ ┬
@@ -45,7 +45,7 @@ a backup every 12 hours (12AM and 12PM):
 
     0 0,12 * * *
 
-### Scheduling Syntax Shorthand
+### Scheduling Syntax Shorthand [](id=scheduling-syntax-shorthand)
 
 Use the following shorthand syntax for common use cases: 
 

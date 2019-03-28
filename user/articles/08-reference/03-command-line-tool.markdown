@@ -1,4 +1,4 @@
-# Command Line Tool
+# Command Line Tool [](id=command-line-tool)
 
 DXP Cloud's command line interface (CLI) is a tool that helps you use and manage 
 DXP Cloud. For example, you can use the CLI to create, manage, and scale 
@@ -13,7 +13,7 @@ applications. Here, you'll learn how to install and use the CLI:
 -   [Execute Commands in a Service Container](#execute-commands-in-a-service-container)
 -   [Access a Service's Shell](#access-a-services-shell)
 
-## Installing the DXP Cloud CLI
+## Installing the DXP Cloud CLI [](id=installing-the-dxp-cloud-cli)
 
 If you use a Unix-like system such as macOS or Linux, open a terminal and run 
 this command: 
@@ -31,7 +31,7 @@ For other systems, see the list of
 [Git](https://git-scm.com/) 
 installed. 
 
-## Changing the CLI Remote
+## Changing the CLI Remote [](id=changing-the-cli-remote)
 
 To access DXP Cloud services via the CLI, you must change the default remote to 
 the DXP Cloud servers. The remote URL is `us-west-1.liferay.cloud`. To list the 
@@ -54,7 +54,7 @@ Alternatively, you can specify the remote inline via this command:
 
     we shell -p <project-id> -s <service-id> --remote <remote-alias>
 
-## Showing the Service Logs
+## Showing the Service Logs [](id=showing-the-service-logs)
 
 You can use the CLI to display the logs of the services in your DXP Cloud 
 project. You do this with the `we log` command. Here are some common examples. 
@@ -72,7 +72,7 @@ to `we log`:
 
     we log --url <serviceID>-<projectID>.wedeploy.io
 
-## Manage Custom Domains
+## Manage Custom Domains [](id=manage-custom-domains)
 
 You can use the CLI to manage custom domains in your DXP Cloud project. You do 
 this with the `we domain` command. Here are some common examples. 
@@ -94,7 +94,7 @@ to `we domain`:
 
     we domain --url <serviceID>-<projectID>.wedeploy.io
 
-## Manage Environment Variables
+## Manage Environment Variables [](id=manage-environment-variables)
 
 To manage environment variables with the CLI, you should use the `we env` 
 command. Here are some common examples. 
@@ -115,7 +115,7 @@ Alternatively, you can pass a service's full URL to `we env`:
 
     we env --url <serviceID>-<projectID>.wedeploy.io
 
-## List Projects or Services
+## List Projects or Services [](id=list-projects-or-services)
 
 You can use the CLI's `we list` command to list projects and services. Here are 
 some common examples. 
@@ -136,7 +136,7 @@ Alternatively, you can check a service by passing its full URL to `we list`:
 
     we list --url <serviceID>-<projectID>.wedeploy.io
 
-## Execute Commands in a Service Container
+## Execute Commands in a Service Container [](id=execute-commands-in-a-service-container)
 
 You can also use the CLI to run commands in a service container. For example, 
 this runs a command in a specific service instance: 
@@ -147,7 +147,7 @@ You can also run the command in any instance of your service:
 
     we delete --project <projectID> --service <serviceID> --instance any -- mkdir foo
 
-## Access a Service's Shell
+## Access a Service's Shell [](id=access-a-services-shell)
 
 To access a service container's shell, run this command: 
 

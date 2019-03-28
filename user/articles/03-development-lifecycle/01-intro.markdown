@@ -1,4 +1,4 @@
-# Development Lifecycle
+# Development Lifecycle [](id=development-lifecycle)
 
 DXP Cloud helps you manage your applications throughout their development 
 lifecycle. You can use DXP Cloud to build your application and mange the builds 

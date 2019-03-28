@@ -1,10 +1,10 @@
-# Real-time Alerts
+# Real-time Alerts [](id=real-time-alerts)
 
 Alerts inform you of any unexpected behavior in your project. You can therefore 
 respond quickly whenever problems occur. You can choose which alerts to receive 
 and how you receive them. 
 
-## Alert Preferences
+## Alert Preferences [](id=alert-preferences)
 
 You can configure your alerts by clicking your profile photo at the top-right 
 corner of the console page and selecting *Alerts Preferences*. This takes you to 
@@ -17,7 +17,7 @@ to receive it. Unselect all checkboxes to disable the alert. Click
 
 ![Figure 2: Select your alert preferences.](../../images/alerts-prefs-page.png)
 
-## Alerts Page
+## Alerts Page [](id=alerts-page)
 
 Alerts delivered to your console are accessible from the bell icon on the top 
 bar. There, you can filter alerts by environment and mark them as read. Each 

@@ -1,4 +1,4 @@
-# Liferay DXP Service
+# Liferay DXP Service [](id=liferay-dxp-service)
 
 The Liferay DXP service is the heartbeat of your project. It runs your 
 application's Liferay DXP instance and interacts with other services like the 
@@ -6,7 +6,7 @@ Proxy, Elasticsearch, and RDS database.
 
 ![Figure 1: The Liferay DXP service is one of several services available in DXP Cloud.](../../images/services-dxp.png)
 
-## Deployment
+## Deployment [](id=deployment)
 
 To install themes, portlets, or OSGi modules, you can include a WAR or JAR file
 in the `/deploy/common` folder and then push it to DXP Cloud.
@@ -23,7 +23,7 @@ could look like this:
 Under the hood, those files are copied to the `$LIFERAY_HOME/deploy` folder and 
 deployed on startup. 
 
-## Licenses
+## Licenses [](id=licenses)
 
 It's possible to add your own license by creating a `license` folder for the 
 license: 
@@ -38,12 +38,12 @@ Depending on the license's format, the license will be copied into either the
 `deploy` or `data` folders of the Liferay Home folder. XML licenses are copied 
 to the `deploy` folder, and AATF licenses are copied to `data` folder. 
 
-## Hot Deploy
+## Hot Deploy [](id=hot-deploy)
 
 Using hot deploy in DXP Cloud isn't recommended. If you still want to use hot 
 deploy, you can do so via the Liferay DXP UI. 
 
-## Configurations
+## Configurations [](id=configurations)
 
 To launch new property or OSGI configurations, you can use the `config` folder 
 as an extension point. This extension point supports `.cfg`, `.properties`, and
@@ -60,7 +60,7 @@ folder structure could look like this:
 Under the hood, all files are copied into the `$LIFERAY_HOME` folder and 
 automatically applied on startup. 
 
-## Portal Properties
+## Portal Properties [](id=portal-properties)
 
 There is also a set of files you can use to configure the environment. The 
 portal reads these files in the following order: 
@@ -82,7 +82,7 @@ configuration. Since you should set most of your properties in
 empty or missing altogether. For testing, however, you may find 
 `portal-ext.properties` useful. 
 
-## Clustering
+## Clustering [](id=clustering)
 
 Clustering Liferay DXP on DXP Cloud is straightforward: set the environment 
 variable `WEDEPLOY_PROJECT_LIFERAY_CLUSTER_ENABLED` to `true`. This instructs 
@@ -94,7 +94,7 @@ Behind the scenes, the image startup process copies the file
 files contain the configuration needed to run a Liferay DXP cluster on DXP 
 Cloud. 
 
-## Hotfixes
+## Hotfixes [](id=hotfixes)
 
 To apply hotfixes, add the hotfix ZIP file to the `hotfix` folder. When you 
 deploy this change, the hotfix is applied to your application.
@@ -104,7 +104,7 @@ deploy this change, the hotfix is applied to your application.
     │ └── liferay-hotfix-2-7110.zip
     └── wedeploy.json
 
-## Scripts
+## Scripts [](id=scripts)
 
 You can use scripts for more extensive customizations. However, use caution when 
 doing so. This is the most powerful way to customize Liferay DXP and can cause 
@@ -119,7 +119,7 @@ place it in the following directory structure:
     │ └── remove-log-files.sh
     └── wedeploy.json
 
-## Advanced Monitoring with Dynatrace
+## Advanced Monitoring with Dynatrace [](id=advanced-monitoring-with-dynatrace)
 
 To enable advanced monitoring with Dynatrace on Liferay DXP, you must set two
 environment variables: 

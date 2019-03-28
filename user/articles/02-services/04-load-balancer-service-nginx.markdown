@@ -1,4 +1,4 @@
-# Load Balancer Service (Nginx)
+# Load Balancer Service (Nginx) [](id=load-balancer-service-nginx)
 
 The Nginx load balancer functions as a gateway from the open Internet to your 
 DXP Cloud services. It handles all traffic from your users and acts as a 
@@ -6,7 +6,7 @@ high-performance load balancer and web server.
 
 ![Figure 1: The load balancer service is one of several services available in DXP Cloud.](../../images/services-nginx.png)
 
-## Configurations
+## Configurations [](id=configurations)
 
 Although the stack of DXP Cloud services are fine-tuned to work well by default, 
 you may need to configure Nginx further. To do this, you can include any CONF 
@@ -20,7 +20,7 @@ configuration. Here's an example folder structure of such a file inside the
     │ └── nginx.conf
     └── wedeploy.json
 
-## Scripts
+## Scripts [](id=scripts)
 
 You can use scripts for more extensive customizations. However, use caution when 
 doing so. This is the most powerful way to customize the load balancer service 

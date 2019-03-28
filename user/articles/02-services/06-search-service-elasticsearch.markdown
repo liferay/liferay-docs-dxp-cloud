@@ -1,4 +1,4 @@
-# Search Service (Elasticsearch)
+# Search Service (Elasticsearch) [](id=search-service-elasticsearch)
 
 The Elasticsearch Service is the full-text search engine for your Liferay DXP 
 application. It's a private service that only communicates with the other 
@@ -6,7 +6,7 @@ services in your application, not with the outside Internet.
 
 ![Figure 1: The Relational Database Service is one of several services available in DXP Cloud.](../../images/services-search.png)
 
-## Configurations
+## Configurations [](id=configurations)
 
 Although the stack of DXP Cloud services are fine-tuned to work well by default, 
 you may need to configure Elasticsearch further. To do this, you can include any 
@@ -20,7 +20,7 @@ configuration. Here's an example folder structure of such a file inside the
     │ └── elasticsearch.yml
     └── wedeploy.json
 
-## Scripts
+## Scripts [](id=scripts)
 
 You can use scripts for more extensive customizations. However, use caution when 
 doing so. This is the most powerful way to customize the search service and can 
@@ -35,6 +35,6 @@ place it in the following directory structure:
     │ └── remove-log-files.sh
     └── wedeploy.json
 
-## Environment Variables
+## Environment Variables [](id=environment-variables)
 
 `ES_JAVA_OPTS`: Configure the JVM's heap size. 

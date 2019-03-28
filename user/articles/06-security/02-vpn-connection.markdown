@@ -1,11 +1,11 @@
-# VPN Connection
+# VPN Connection [](id=vpn-connection)
 
 DXP Cloud's VPN feature is an advanced way to connect your DXP Cloud services to
 external services that have their own private network. This is especially useful 
 when you need to connect your DXP Cloud services to things like databases or 
 applications that are only accessible inside a company VPN. 
 
-## Connecting to a VPN
+## Connecting to a VPN [](id=connecting-to-a-vpn)
 
 To connect your environment to a VPN, first go to your environment's *Settings* 
 tab. Then fill in the required fields for the VPN and click *Connect VPN*. To 
@@ -13,7 +13,7 @@ disconnect your service from a VPN, click the *Disconnect* button.
 
 ![Figure 1: You can connect to a VPN from the Settings tab.](../../images/vpn.png)
 
-## Adding Port Configuration
+## Adding Port Configuration [](id=adding-port-configuration)
 
 Once you have connected to a VPN, you can also choose which ports to forward 
 requests to. On the same page, click *Add VPN Port*, then enter the local 

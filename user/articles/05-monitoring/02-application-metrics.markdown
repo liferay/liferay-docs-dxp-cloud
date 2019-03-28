@@ -1,4 +1,4 @@
-# Application Metrics
+# Application Metrics [](id=application-metrics)
 
 With DXP Cloud's built-in monitoring, you can track the following information 
 about your service: 
@@ -14,7 +14,7 @@ time period to display data for.
 
 ![Figure 1: You can use DXP Cloud to monitor your services.](../../images/monitoring.png)
 
-## Understanding Service Health
+## Understanding Service Health [](id=understanding-service-health)
 
 Your service's status can be listed as any of the following: 
 
@@ -29,7 +29,7 @@ Note that sometimes your application might have usage peaks that can hit
 resource limits and make your service unhealthy. If this occurs, check your 
 service's logs and metrics for the time period in question. 
 
-## Advanced Application Metrics
+## Advanced Application Metrics [](id=advanced-application-metrics)
 
 To conduct deeper and more advanced monitoring, click the *Advanced* tab to 
 access your Dynatrace dashboard. There you can check things like log trails, and 

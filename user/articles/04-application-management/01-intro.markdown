@@ -1,4 +1,4 @@
-# Application Management
+# Application Management [](id=application-management)
 
 DXP Cloud gives you all the tools you need to manage applications in your 
 environment. Here, you'll learn about these features: 

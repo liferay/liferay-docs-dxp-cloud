@@ -1,9 +1,9 @@
-# Health Checks and Zero-downtime Deployments
+# Health Checks and Zero-downtime Deployments [](id=health-checks-and-zero-downtime-deployments)
 
 Health Checks are primarily useful for validating deployment success and 
 enabling accurate service self-healing. 
 
-## Validating Deployment Success
+## Validating Deployment Success [](id=validating-deployment-success)
 
 When deploying a service, DXP Cloud's default behavior is to make sure the 
 container in your service's background is up and running. At that point, DXP 
@@ -13,7 +13,7 @@ checks, use DXP Cloud's Health Check feature to specify a custom URL or command
 to check before declaring your service is healthy. For more information, see 
 [Custom Health Checks](#custom-health-checks). 
 
-## Accurate Service Self Healing
+## Accurate Service Self Healing [](id=accurate-service-self-healing)
 
 Once your service is successfully deployed, it's important that you always know 
 its health status. DXP Cloud constantly checks your service's health. If a 
@@ -21,13 +21,13 @@ health check fails, DXP Cloud replaces your service with a new one. This
 self-healing feature also works with custom health checks, which are discussed 
 next. 
 
-## Custom Health Checks
+## Custom Health Checks [](id=custom-health-checks)
 
 To perform a custom health check, you must specify it via the `healthCheck` 
 property in `wedeploy.json`. The following sections show you how to do this for 
 a URL and a command.
 
-### Checking with a URL
+### Checking with a URL [](id=checking-with-a-url)
 
 To perform a custom health check with a URL, set the `url` property to the URL. 
 To perform the check, DXP Cloud pings that address until receiving a `200` 
@@ -47,7 +47,7 @@ address. Note, however, that you can use any URL here. For example, you could
 specify a path like `localhostcompany.com/blog` or a specific port like 
 `localhost:4000`. 
 
-### Checking with a Command
+### Checking with a Command [](id=checking-with-a-command)
 
 For more complex health checks, you can add commands via the `command` property. 
 Here's an example:
@@ -59,7 +59,7 @@ Here's an example:
       }
     }
 
-### Additional Properties
+### Additional Properties [](id=additional-properties)
 
 You can use additional properties to customize both the `url` and `command` 
 health checks. Here's a list of these properties: 
@@ -86,7 +86,7 @@ For example:
       }
     }
 
-## Zero-downtime Deployments
+## Zero-downtime Deployments [](id=zero-downtime-deployments)
 
 Configuring a service to have zero downtime means that it will have 100% uptime 
 during new deployments. Zero-downtime deployments are enabled by default. If you 
@@ -98,7 +98,7 @@ to `false`:
       "zeroDowntime": false
     }
 
-## Using Health Checks with Zero-downtime Deployments
+## Using Health Checks with Zero-downtime Deployments [](id=using-health-checks-with-zero-downtime-deployments)
 
 When you combine health checks with zero-downtime deployments, a health check 
 first determines if the new service is healthy. If it is, then the new service 

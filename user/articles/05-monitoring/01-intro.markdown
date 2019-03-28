@@ -1,4 +1,4 @@
-# Monitoring
+# Monitoring [](id=monitoring)
 
 DXP Cloud's monitoring features keep you informed of what's going on in your 
 project. Here, you'll learn how to configure and use these features:

@@ -1,4 +1,4 @@
-# Configuring via the wedeploy.json File
+# Configuring via the wedeploy.json File [](id=configuring-via-the-wedeploy-json-file)
 
 DXP Cloud uses the `wedeploy.json` file to configure your container. You can use 
 this file to configure properties like the service ID, memory, number of CPUs, 
@@ -23,7 +23,7 @@ public         | Boolean        | true             | Whether the service is reac
 environments   | Object         | {}               | Target environment |
 deploy         | Boolean        | true             | Whether to allow deployment to an environment |
 
-## Usage
+## Usage [](id=usage)
 
 Here's an example `wedeploy.json` file that uses all the properties: 
 

@@ -1,10 +1,10 @@
-# Team Collaboration and Access Control
+# Team Collaboration and Access Control [](id=team-collaboration-and-access-control)
 
 With DXP Cloud's team collaboration features you can better manage access to 
 your environments. Each environment can have unique members, and each member can 
 have a role that matches their job's access level in the environment. 
 
-## Managing Team Members
+## Managing Team Members [](id=managing-team-members)
 
 You can manage teams from the *Team* tab in the left menu of your environment. 
 
@@ -26,7 +26,7 @@ you change the team member's role and remove the member from the team.
 
 ![Figure 2: Use the Actions button to manage each team member.](../../images/team-member-actions.png)
 
-## Team Activities
+## Team Activities [](id=team-activities)
 
 To see a list of activities performed by your team members, click your 
 environment's *Activities* tab in the menu on the left. Each activity lists the 
@@ -35,7 +35,7 @@ who is doing what in your environment.
 
 ![Figure 3: The Activities tab shows your team's activities.](../../images/team-activities.png)
 
-## Understanding Team Roles
+## Understanding Team Roles [](id=understanding-team-roles)
 <!-- These roles don't match those in the selector menu or Actions button. -->
 
 Here's a description of the roles you can assign team members: 

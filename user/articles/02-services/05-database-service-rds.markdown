@@ -1,4 +1,4 @@
-# Database Service (RDS)
+# Database Service (RDS) [](id=database-service-rds)
 
 The Relational Database Service (RDS) is a distributed relational database 
 service designed to simplify the setup, operation, and scaling of your 
@@ -7,7 +7,7 @@ only communicate with your other services, not the public internet.
 
 ![Figure 1: The Relational Database Service is one of several services available in DXP Cloud.](../../images/services-database.png)
 
-## Environment Variables
+## Environment Variables [](id=environment-variables)
 
 `WEDEPLOY_DBNAME`: Your database's name. 
 
