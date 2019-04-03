@@ -132,3 +132,47 @@ characters. It is part (prefix) of the URL of your Dynatrace SaaS product.
 characters that can be found at you Dynatrace account in the following menu
 path: Deploy Dynatrace &rarr; Start installation &rarr; Set up PaaS monitoring
 &rarr; InstallerDownload.
+
+
+## Uploading a Document Library
+
+In order to browser files into your Liferay service, we preset the [Cloud Commander](http://cloudcmd.io/) service, which is a file manager for the web. With Cloud Commander you are able to access your Liferay's document library folder and download or upload files from and to there.
+
+To add the Cloud Commander service to your project, create a folder at `wedeploy/` called `cloudcmd`. Inside this folder, create a file called `wedeploy.json` and paste the following:
+
+```json
+{
+     "env": {
+       "CLOUDCMD_AUTH": "true",
+       "CLOUDCMD_ONE_FILE_PANEL": "true",
+       "CLOUDCMD_PASSWORD": "passw0rd",
+       "CLOUDCMD_USERNAME": "user"
+     },
+     "id": "cloudcmd",
+     "image": "coderaiser/cloudcmd",
+     "port": 8000,
+}
+```
+
+Feel free to replace the value of `CLOUDCMD_USERNAME` or `CLOUDCMD_PASSWORD` with any user name you want as well as the password.
+
+### Add a Volume to Document Library Folder
+
+Adding a volume to a chosen folder inside your service leads this folder to be reachable from other services. In other words, you can access this folder via other services that are in the same environment. Because of this, we have to add a `volume` to the Liferay's `wedeploy.json` as following:
+
+```json
+"volumes": {
+    "data": "/opt/liferay/data/document_library"
+}
+```
+
+As the Liferay `data` folder is reachable due to its volume, we can configure the `CLOUDCMD_ROOT` to be this folder. To do this, you can add a value to `CLOUDCMD_ROOT`, which is an environment variable for Cloud Command to know what is the folder it has to display on the browser. If you want to display Liferay's document library folder, for example, make sure to include this to your `cloudcmd` service:
+
+```json
+"env": {
+    "CLOUDCMD_ROOT": "/opt/liferay/data/document_library",
+}
+"volumes": {
+    "data": "/opt/liferay/data/document_library"
+}
+```
