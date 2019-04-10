@@ -34,6 +34,11 @@ log files, you could include something like this:
     │ └── remove-log-files.sh
     └── wedeploy.json
 
+## Deploying a License to the Search Service
+
+In order to deploy a license to the Search Service, you have to create the path 
+`wedeploy/search/license/common` and drop your license file there.
+
 ## Environment Variables
 
 `ES_JAVA_OPTS`: Configure the JVM's heap size. 
