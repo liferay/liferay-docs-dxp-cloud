@@ -35,11 +35,11 @@ place it in the following directory structure:
     │ └── remove-log-files.sh
     └── wedeploy.json
 
-## Deploying a License to the Search Service
+## Deploying a License to the Search Service [](id=deploying-a-license-to-the-search-service)
 
 To deploy a license to the search service, you must create the path 
 `wedeploy/search/license/common` and put your license file there. 
 
-## Environment Variables
+## Environment Variables [](id=environment-variables)
 
 `ES_JAVA_OPTS`: Configure the JVM's heap size. 
