@@ -1,25 +1,24 @@
-# Auto Scaling
+# Auto Scaling [](id=auto-scaling)
 
-Whether you are experiencing a traffic spike or a memory leak, sometimes your
-services need to have more resources to perform well. Our Auto Scaling feature
-allows your services to automatically allocate more resources when needed. This
-way, you do not need to worry about fitting exactly the required resources for
-each service or reacting soon enough to events. Just enable Auto Scaling and we
-do everything for you.
+Whether due to a traffic spike, memory leak, or some other issue, sometimes your 
+services must be upscaled or downscaled to perform well. DXP Cloud's 
+auto-scaling feature automatically creates and destroys instances of your 
+service as needed to optimize performance. You therefore don't need to worry 
+about doing so manually. 
 
-## Enabling Auto Scaling
+## Enabling Auto Scaling [](id=enabling-auto-scaling)
 
-You can easily enable auto scaling via your service's *Scale* tab. When Auto
-Scaling is enabled, we will monitor your service in real-time and scale it
-automatically when it reaches pre-defined thresholds. 
+You can enable auto scaling via your service's *Scale* tab. Navigate to 
+*Services* &rarr; *Scale*, and click *Enable Auto Scaling*. With auto-scaling 
+enabled, DXP Cloud monitors your service and scales it automatically according 
+to predefined thresholds. 
 
 ![Figure 1: Enable auto scaling from the Scale tab.](../../images/auto-scaling-enable.png)
 
-## Downscaling Services
+## Downscaling Services [](id=downscaling-services)
 
-If you want to downscale a service, you can scroll down on the same page and
-click on *Manual Downscale*. You will be redirected to a page for you to choose 
-how many scales you want to remove. Then, once you have chosen it, you can click 
-*Downscale Service* and it will be downscaled to use fewer resources. 
+To downscale a service, scroll down the Scale tab and click *Manual Downscale*. 
+This redirects you to a page for you to choose how many service instances you 
+want to remove. Make your selection and click *Downscale Service*. 
 
-![Figure 2: You can also downscale your service.](../../images/auto-scaling-downscale.png)
+![Figure 2: You can also downscale your service manually.](../../images/auto-scaling-downscale.png)

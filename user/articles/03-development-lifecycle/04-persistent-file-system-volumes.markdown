@@ -1,12 +1,13 @@
-# Persistent File System (Volumes)
+# Persistent File System (Volumes) [](id=persistent-file-system-volumes)
 
-## Defining Volumes
+## Defining Volumes [](id=defining-volumes)
 
-When establishing your persistent file system, or as we call it *Volume*, you
-are choosing which are the folders that you want to persist its data. Let's say
-that you want to persist files from a Liferay Portal instance that is located on
-`/liferay/opt/data`, all you have to do is add the `volumes` configuration to
-your `wedeploy.json.` It would look like the example below.
+When establishing your persistent file system (your volume), you must choose the 
+folders that contain the data you want to persist. For example, to persist files 
+from a Liferay DXP instance located at `/liferay/opt/data`, you must add the 
+`volumes` configuration to your `wedeploy.json`. This configuration must contain 
+a key for each volume. For example, the following configuration contains a 
+`data` key for `/liferay/opt/data`: 
 
     {
         "id": "lfr",
@@ -18,23 +19,12 @@ your `wedeploy.json.` It would look like the example below.
         }
     }
 
-As you can see, you can add a key for each volume. In this example, the key
-`data` was added and its value is `/liferay/opt/data`.
+## Sharing Volumes Between Different Services [](id=sharing-volumes-between-different-services)
 
-## Sharing Volumes Between Different Services
-
-Now, let's say that you have two or more different services and you want to
-share content between them. We can do this because all volumes are shared within
-an environment. You can specify specific ID's to choose which volume you want to
-access. For example, imagine you have two services whose service IDs are
-`service1` and `service2` and you want to share content located in `/photos`
-from the `service1` and content located in `/documents/images` from the
-`service2`.
-
-In this scenario, this is how the services would connect to the volumes via
-their `wedeploy.json`:
-
-`service1`
+Because all volumes in an environment are shared, you can share content between 
+two or more services. You do this by specifying the service's ID and the 
+location of the content to share, in the service's `wedeploy.json`. For example, 
+this service (`service1`) shares photos from `/photos`: 
 
     {
       "id": "service1",
@@ -43,7 +33,7 @@ their `wedeploy.json`:
       }
     }
 
-`service2`
+This service (`service2`) shares photos from `/documents/images`: 
 
     {
       "id": "service2",
@@ -52,9 +42,9 @@ their `wedeploy.json`:
       }
     }
 
-In this example, we are sharing the volume ID `photos` between two different
-services and both can access the files within that volume by the declared paths.
-All volumes must use absolute paths, not relative ones.
+In these examples, note the shared volume key `photos`. Both services can access 
+the files within the volume via the key and declared file paths. All volumes 
+must use absolute paths. 
 
 **Note**: To delete your service volumes, you can delete the environment that 
-your services belong to or deleting it via shell. 
+your services belong to. 
