@@ -140,7 +140,7 @@ Liferay DXP Document Library folder, and download and/or upload files.
 
 To add Cloud Commander to your project, first create the `cloudcmd` folder in 
 your `wedeploy/` folder. Inside `cloudcmd`, create a `wedeploy.json` file with 
-the following: 
+the following configuration: 
 
     {
         "env": {
