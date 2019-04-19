@@ -131,3 +131,49 @@ eight characters. It's part of the URL (prefix) of your Dynatrace SaaS product.
 characters that you can find in your Dynatrace account at *Deploy Dynatrace* 
 &rarr; *Start installation* &rarr; *Set up PaaS monitoring* &rarr; 
 *InstallerDownload*. 
+
+## Working with the Document Library
+
+To browse files in your Liferay DXP service, you can use the web file manager 
+[Cloud Commander](http://cloudcmd.io/). With Cloud Commander you can access your 
+Liferay DXP Document Library folder, and download and/or upload files. 
+
+To add Cloud Commander to your project, first create the `cloudcmd` folder in 
+your `wedeploy/` folder. Inside `cloudcmd`, create a `wedeploy.json` file with 
+the following: 
+
+    {
+        "env": {
+            "CLOUDCMD_AUTH": "true",
+            "CLOUDCMD_ONE_FILE_PANEL": "true",
+            "CLOUDCMD_PASSWORD": "passw0rd",
+            "CLOUDCMD_USERNAME": "user"
+        },
+        "id": "cloudcmd",
+        "image": "coderaiser/cloudcmd",
+        "port": 8000,
+    }
+
+You can replace the value of `CLOUDCMD_USERNAME` or `CLOUDCMD_PASSWORD` with any 
+user name you want as well as the password. 
+
+### Configuring Access to the Document Library
+
+For other services in the same environment to access your Liferay DXP service's 
+Document Library folder, you must add a volume to that folder. To do this, add a 
+`volume` to your Liferay DXP service's `wedeploy.json` as follows: 
+
+    "volumes": {
+        "data": "/opt/liferay/data/document_library"
+    }
+
+Now that this folder is reachable, you can set it as the Cloud Command root 
+folder (the folder Cloud Command displays in a browser). To do this, set the 
+`CLOUDCMD_ROOT` environment variable to the folder in your `cloudcmd` service: 
+
+    "env": {
+        "CLOUDCMD_ROOT": "/opt/liferay/data/document_library",
+    }
+    "volumes": {
+        "data": "/opt/liferay/data/document_library"
+    }
