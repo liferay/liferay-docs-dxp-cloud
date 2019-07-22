@@ -11,9 +11,9 @@ more, all designed with years of in-house Liferay expertise.
 
 ## Features
 
-DXP Cloud contains a suite of features that enables DevOps teams to deploy
-faster and with more confidence and security. Here are some of the
-out-of-the-box features:
+DXP Cloud contains a suite of features that enable DevOps teams to deploy faster 
+and with more confidence and security. Here are some of the out-of-the-box 
+features: 
 
 **Autoscaling:** Dynamically scale bandwidth and compute capacity to maintain 
 steady performance through traffic peaks. This helps IT teams automatically 
@@ -45,9 +45,9 @@ performance with real-time build and deployment logs. DevOps teams can analyze
 stack traces and troubleshoot bugs from their web console and command line
 interface, or download the logs for use in their preferred tools.
 
-Backup, Recovery, and Security: DXP Cloud provides automatic, secure backups to
-ensure that data and documents are protected and ready for restoration in case
-of critical data corruption or failure. Encryption at rest ensures that
-sensitive data saved on disks isn't readable by any user or application without
-a valid key. DXP Cloud delivers data through multi-region architecture to ensure
-high availability.
+**Backup, Recovery, and Security:** DXP Cloud provides automatic, secure backups 
+to ensure that data and documents are protected and ready for restoration in 
+case of critical data corruption or failure. Encryption at rest ensures that 
+sensitive data saved on disks isn't readable by any user or application without 
+a valid key. DXP Cloud delivers data through multi-region architecture to ensure 
+high availability. 
