@@ -1,3 +1,7 @@
+---
+header-id: real-time-alerts
+---
+
 # Real-Time Alerts
 
 Alerts inform you of any unexpected behavior in your project. You can therefore

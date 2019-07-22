@@ -1,3 +1,7 @@
+---
+header-id: configuring-via-lcp-json
+---
+
 # Configuring via LCP.json
 
 DXP Cloud uses the `LCP.json` file to configure your container. You can use this 

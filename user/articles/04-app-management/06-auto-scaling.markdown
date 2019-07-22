@@ -1,3 +1,7 @@
+---
+header-id: auto-scaling
+---
+
 # Auto Scaling
 
 Whether due to a traffic spike, memory leak, or some other issue, sometimes your

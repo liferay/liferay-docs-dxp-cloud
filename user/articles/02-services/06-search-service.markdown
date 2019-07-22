@@ -1,3 +1,7 @@
+---
+header-id: search-service-elasticsearch
+---
+
 # Search Service (Elasticsearch)
 
 The Elasticsearch Service is the full-text search engine for your Liferay DXP

@@ -1,3 +1,7 @@
+---
+header-id: log-management
+---
+
 # Log Management
 
 Checking logs is crucial for debugging. On DXP Cloud, you can access your

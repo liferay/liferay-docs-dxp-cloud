@@ -1,3 +1,7 @@
+---
+header-id: what-is-dxp-cloud
+---
+
 # What is DXP Cloud?
 
 Liferay DXP Cloud is a secure, reliable enterprise cloud platform (PaaS) that

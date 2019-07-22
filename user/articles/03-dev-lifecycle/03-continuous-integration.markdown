@@ -1,3 +1,7 @@
+---
+header-id: continuous-integration
+---
+
 # Continuous Integration
 
 DXP Cloud contains Jenkins Continuous Integration by default. When you send a

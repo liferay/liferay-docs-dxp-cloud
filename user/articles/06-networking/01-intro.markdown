@@ -1,3 +1,7 @@
+---
+header-id: networking
+---
+
 # Networking
 
 Your DXP Cloud services can communicate securely with external services and

@@ -1,3 +1,7 @@
+---
+header-id: application-management
+---
+
 # Application Management
 
 DXP Cloud gives you all the tools you need to manage applications in your

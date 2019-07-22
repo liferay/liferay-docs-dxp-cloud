@@ -1,3 +1,7 @@
+---
+header-id: custom-domains
+---
+
 # Custom Domains
 
 To add a custom domain to a DXP Cloud service, you must point that domain to the

@@ -1,3 +1,7 @@
+---
+header-id: liferay-dxp-service
+---
+
 # Liferay DXP Service
 
 The Liferay DXP service is the heartbeat of your project. It runs your

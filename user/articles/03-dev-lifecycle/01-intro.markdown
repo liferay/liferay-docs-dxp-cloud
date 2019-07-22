@@ -1,3 +1,7 @@
+---
+header-id: development-lifecycle
+---
+
 # Development Lifecycle
 
 DXP Cloud helps you manage your applications throughout their development

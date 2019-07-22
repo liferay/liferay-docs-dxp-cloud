@@ -1,3 +1,7 @@
+---
+header-id: vpn-connection
+---
+
 # VPN Connection
 
 DXP Cloud's VPN feature is an advanced way to connect your DXP Cloud services to 

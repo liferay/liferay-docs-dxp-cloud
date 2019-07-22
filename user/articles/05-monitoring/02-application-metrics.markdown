@@ -1,3 +1,7 @@
+---
+header-id: application-metrics
+---
+
 # Application Metrics
 
 With DXP Cloud's built-in monitoring, you can track the following information

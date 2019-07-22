@@ -1,3 +1,7 @@
+---
+header-id: team-collaboration-access-control
+---
+
 # Team Collaboration & Access Control
 
 With DXP Cloud's team collaboration features, you can better manage access to 

@@ -1,3 +1,7 @@
+---
+header-id: command-line-tool
+---
+
 # Command-line Tool
 
 Liferay Cloud's command line interface (CLI) is a tool that helps you use and

@@ -1,3 +1,7 @@
+---
+header-id: environment-variables
+---
+
 # Environment Variables
 
 Environment variables are a set of dynamic placeholders that can affect the way

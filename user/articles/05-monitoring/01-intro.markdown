@@ -1,3 +1,7 @@
+---
+header-id: monitoring
+---
+
 # Monitoring
 
 DXP Cloud's monitoring features keep you informed of what's going on in your

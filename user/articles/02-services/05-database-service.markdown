@@ -1,3 +1,7 @@
+---
+header-id: database-service-mysql
+---
+
 # Database Service (MySQL)
 
 The Relational Database Service (MySQL) is a distributed relational database
