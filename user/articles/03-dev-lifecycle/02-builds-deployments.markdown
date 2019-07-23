@@ -4,61 +4,61 @@ header-id: builds-and-deployments
 
 # Builds and Deployments
 
-Your application must first go through a build phase before it can be deployed
-to an environment. This initial build phase is when DXP Cloud gets the Docker
-images from your CI, creates your container environment, and runs all tasks and
-build configurations specified in your image.
+Your application must go through a build phase before it can be deployed to an 
+environment. This initial build phase is when DXP Cloud gets the Docker images 
+from your CI, creates your container environment, and runs all tasks and 
+build configurations specified in your image. 
 
 You can check your environment's build process by clicking the *Builds* tab on 
 the top-right side of each environment page. 
 
 ![Figure 1: The builds tab lists the builds in your environment.](../../images/builds.png)
 
-## Deployments 
+## Deployments
 
-If your service builds without errors, then it can be deployed to an 
-environment. Once triggered, this deployment process pushes the build to the
-registry and makes it available to your users. During the deployment phase, DXP
-Cloud runs health checks on your services. If these checks succeed, the
-deployment is healthy and ready.
+If your service builds without errors it can be deployed to an environment. Once 
+triggered, the deployment process pushes the build to the registry and makes it 
+available to your users. During the deployment phase, DXP Cloud runs health 
+checks on your services. If these checks succeed, the deployment is healthy and 
+ready. 
 
-To access the deployment page, go to your environment page and click the
-*Deployments* tab on the top-right side.
+To see your deployments, go to your environment page and click the *Deployments* 
+tab on the top-right side. 
 
-![Figure 2: The deployments tab lists the deployments in your environment.](../../images/deployments.png)
+![Figure 2: The Deployments tab lists the deployments in your environment.](../../images/deployments.png)
 
 ### Deployment Types
 
 DXP Cloud provides two deployment types: 
 
-**Deployment:** Meant for stateless applications. Volumes mapped on `LCP.json` 
-support NFS disks, however, which makes the service function as a hybrid between 
-stateless and stateful. This deployment type is valuable for applications that 
-require one or more of the following: 
+1.  **Deployment:** Meant for stateless applications. Volumes mapped on 
+    `LCP.json` support NFS disks, however, making the service function as a 
+    stateless-stateful hybrid. This deployment type is valuable for applications 
+    that require one or more of the following: 
 
--   Unstable, random network identifiers (e.g., `liferay-89f9f559`, 
-    `liferay-d1267401`). 
--   Stable, persistent shared storage (NFS). Volumes mapped on `LCP.json` mount 
-    a shared disk for all instances of the same service (e.g., on the Liferay 
-    service). The Document Library folder takes advantage of this ability by 
-    sharing the same directory between all instances. Dedicated SSD disks are 
-    not allowed. 
--   Unordered deployment and scaling. 
--   Unordered, automated rolling updates. 
+    -   Unstable, random network identifiers (e.g., `liferay-89f9f559`, 
+        `liferay-d1267401`). 
+    -   Stable, persistent shared storage (NFS). Volumes mapped on `LCP.json` 
+        mount a shared disk for all instances of the same service (e.g., on the 
+        Liferay DXP service). The Document Library folder takes advantage of 
+        this ability by sharing the same directory between all instances. 
+        Dedicated SSDs are not allowed. 
+    -   Unordered deployment and scaling. 
+    -   Unordered, automated rolling updates. 
+
+2.  **StatefulSet:** Meant for stateful applications. StatefulSet deployment is 
+    valuable for applications that require one or more of the following: 
+
+    -   Stable, unique network identifiers (e.g., `search-0`, `search-1`). 
+    -   Stable, persistent dedicated storage (SSD). Volumes mapped on `LCP.json` 
+        mount a dedicated, high-performance disk per instance. NFS disks aren't 
+        allowed. 
+    -   Ordered, graceful deployment and scaling. 
+    -   Ordered, automated rolling updates. For a StatefulSet with N replicas, 
+        pods being deployed are created in order from `{0..N-1}`. When pods are 
+        deleted, they're terminated in reverse order from `{N-1..0}`. 
 
 | **Note:** For zero-downtime deployments, you must use the Deployment type. 
-
-**StatefulSet:** Meant for stateful applications. Using StatefulSet deployment 
-is valuable for applications that require one or more of the following: 
-
--   Stable, unique network identifiers (e.g., `search-0`, `search-1`). 
--   Stable, persistent dedicated storage (SSD). Volumes mapped on `LCP.json` 
-    mount a high performance, dedicated disk per instance. NFS disks aren't 
-    allowed. 
--   Ordered, graceful deployment and scaling. 
--   Ordered, automated rolling updates. For a StatefulSet with N replicas, pods 
-    being deployed are created in order from `{0..N-1}`. When pods are deleted, 
-    they're terminated in reverse order from `{N-1..0}`. 
 
 | **Note:** If you don't specify a deployment type, the default is Deployment. 
 
@@ -73,15 +73,14 @@ You can set the deployment type in your `LCP.json`:
 
 ### Service Health Probes
 
-There are two different probe types available for you to validate the health of 
-your service: 
+You can use two probe types to validate your service's health: 
 
 **Liveness Probe:** Indicates whether the service is running. 
 
 **Readiness Probe:** Indicates whether the service is ready to receive requests. 
 
-For each probe, you can decide if you want to use a URL request or an executable
-command to validate the status: 
+For each probe, you can use a URL request or an executable command to validate 
+the status: 
 
 **URL Request (path/port):**
 
@@ -109,10 +108,10 @@ command to validate the status:
 }
 ```
 
-Here are descriptions for each property that can be used in the probes: 
+Here are descriptions for each property you can use in the probes: 
 
 `initialDelaySeconds`: Number of seconds after the container has started before 
-liveness or readiness probes are initiated. 
+the probe is initiated. 
 
 `periodSeconds`: How often (in seconds) to perform the probe. The default is 
 `10`; the minimum is `1`. 
@@ -131,16 +130,16 @@ is `3`; the minimum is `1`.
 
 ## Deploying to a Different Environment
 
-When you deploy a build, it deploys by default to the same environment it was 
-built in. To deploy it to a different environment, select *Deploy Build* to from 
-the build's Actions button. 
+By default, a build deploys to the environment it was built in. To deploy to a 
+different environment, select *Deploy Build* to from the build's Actions button 
+(![Actions](../../images/icon-actions.png)). 
 
 ![Figure 3: You can also deploy builds to different environments.](../../images/builds-deploy-to.png)
 
 ## Deployment Region
 
-Each environment can be configured to host the services in a specific region.
-This configuration must be set when creating the environment. Contact support to
-request a new deployment region.
+You can configure each environment to host the services in a specific region. 
+This configuration must be set when creating the environment. Contact support to 
+request a new deployment region. 
 
 ![Figure 4: Choose a deployment location for new environments.](../../images/deployment-region.png)

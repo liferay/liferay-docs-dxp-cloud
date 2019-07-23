@@ -4,13 +4,12 @@ header-id: log-management
 
 # Log Management
 
-Checking logs is crucial for debugging. On DXP Cloud, you can access your
-environment's logs via the web console or terminal. You can also download the
-log file. 
+Logs are crucial for debugging. On DXP Cloud, you can access your environment's 
+logs via the web console or terminal. You can also download log files. 
 
 ## Accessing Logs from the Web Console
 
-The easiest way to access an environment's logs is via the Web Console. To do
+The easiest way to access an environment's logs is via the web console. To do 
 so, select the environment and click the *Logs* tab in the left menu. To access 
 a specific service's logs, select the service from the *All Services* menu in 
 the toolbar. To download the logs, click *Download Logs*. 
@@ -25,8 +24,8 @@ You can also access logs from your terminal by running this command:
 lcp log
 ```
 
-This lists all your services so that you can choose the one whose logs to
-access. To access logs from a specific environment you can enter its ID or run
+This lists all your services so that you can choose the one whose logs to 
+access. To access logs from a specific environment you can enter its ID or run 
 the command with that ID: 
 
 ```shell
