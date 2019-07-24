@@ -5,7 +5,7 @@ header-id: reference
 # Reference
 
 Here, you'll find reference documentation for DXP Cloud. The following topics 
-are covered:
+are covered: 
 
 **Configuring via the LCP.json File:** Learn how to use the `LCP.json` file to 
 configure your container requirements. 

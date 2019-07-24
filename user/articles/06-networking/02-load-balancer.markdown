@@ -8,10 +8,11 @@ The Ingress load balancer gives Internet access to your environment's services
 via proxied HTTP(S) connections. Each load balancer has a static IP that can set 
 up custom domains. 
 
-![Figure 1: Environment load balancer configured with a custom domain.](../../images/load-balancer.png)
+![Figure 1: You can configure your environment's load balancer with a custom domain.](../../images/load-balancer.png)
 
-Having a dedicated load balancer comes with a myriad of enhanced features,
-including CDN, port configuration, and custom SSL certificates. 
+Having a dedicated load balancer provides a myriad of enhanced features, such as 
+port configuration, custom SSL certificates, and a CDN. Here's an example 
+configuration for a load balancer in an `LCP.json` file: 
 
 ```json
 {

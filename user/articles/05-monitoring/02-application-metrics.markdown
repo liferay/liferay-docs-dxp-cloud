@@ -4,8 +4,8 @@ header-id: application-metrics
 
 # Application Metrics
 
-With DXP Cloud's built-in monitoring, you can track the following information
-about your service:
+With DXP Cloud's built-in monitoring, you can track the following information 
+about your service: 
 
 -   CPU usage
 -   Memory usage
@@ -20,5 +20,7 @@ time period to display data for.
 ## Advanced Application Metrics
 
 To conduct deeper and more advanced monitoring, click the *Advanced* tab to 
-access your Dynatrace dashboard. There you can check things like log trails and 
-create custom dashboards. 
+access your 
+[Dynatrace](https://www.dynatrace.com/) 
+dashboard. There you can check things like log trails and create custom 
+dashboards. 

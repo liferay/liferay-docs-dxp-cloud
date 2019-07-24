@@ -4,10 +4,10 @@ header-id: vpn-connection
 
 # VPN Connection
 
-DXP Cloud's VPN feature is an advanced way to connect your DXP Cloud services to 
-external services that have their own private network. This is especially useful 
-when you need to connect your DXP Cloud services to things like directories or 
-applications that are only accessible inside a company VPN. 
+You can use DXP Cloud's VPN feature to connect your DXP Cloud services to 
+external services on private networks. For example, you may need to connect your 
+DXP Cloud services to directories or applications that are only accessible on a 
+company VPN. You'll learn how to do this here. 
 
 ## Connecting to a VPN
 
