@@ -13,10 +13,11 @@ high-performance web server.
 ## Configurations
 
 Although DXP Cloud's services are fine-tuned to work well by default, you may 
-need to configure Nginx further. To do s, you can include any CONF file inside 
-the `config` folder. When you deploy your changes, the file is automatically 
-injected into your service and overwrites the default configuration. Here's an 
-example folder structure of such a file inside the `config` folder: 
+need to configure Nginx further. To do this, you can include any CONF file 
+inside the `config` folder. When you deploy your changes, the file is 
+automatically injected into your service and overwrites the default 
+configuration. Here's an example folder structure of such a file inside the 
+`config` folder: 
 
     loadbalancer
     ├── config
