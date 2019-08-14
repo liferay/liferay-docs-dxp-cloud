@@ -18,7 +18,7 @@ manner without having to access the public internet.
 
 You can access these environments from the selector menu at the upper left. 
 
-![Figure 1: You can access your project's environments from this selector menu.](../images/environment-menu.png)
+![Figure 1: You can access your project's environments from this selector menu.](../../images/environment-menu.png)
 
 ## Environment Location
 
@@ -35,7 +35,7 @@ Here's a list of the DXP Cloud regions currently available:
 -   Frankfurt, Germany: `europe-west3`
 -   São Paulo, Brazil: `southamerica-east1`
 
-![Figure 2: Your environments can be hosted in different locations.](../images/environment-location.png)
+![Figure 2: Your environments can be hosted in different locations.](../../images/environment-location.png)
 
 ## Environment Type
 
@@ -60,5 +60,5 @@ differ in how their backup and database services function.
 -   Database: Data is present in a single availability zone and contains regular 
     IOPS. 
 
-![Figure 3: Your environment's type appears in *Settings*.](../images/environment-type.png)
+![Figure 3: Your environment's type appears in *Settings*.](../../images/environment-type.png)
 
