@@ -1,3 +1,7 @@
+---
+header-id: support-access
+---
+
 # Support Access
 
 When customers open tickets via Help Center, the Liferay support team typically 
