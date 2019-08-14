@@ -35,8 +35,8 @@ Follow these steps to add Adminer to your environment:
 1.  Go to the repository's `lcp` folder and create the `adminer` folder. 
 
 2.  Inside `lcp/adminer`, create the `lcp.json` file using the following code as
- a template. One beneficial byproduct of using the `loadBalancer` property is 
-that it ensures traffic to Adminer uses https and therefore is secure.
+    a template. Note that the `loadBalancer` property ensures that Adminer 
+    traffic uses HTTPS and therefore is secure: 
 
     ```json
     {
