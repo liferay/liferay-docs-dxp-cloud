@@ -7,7 +7,8 @@ header-id: support-access
 When customers open tickets via Help Center, the Liferay support team typically 
 resolves the issues by asking questions and interacting with customers. Some 
 cases, however, require Liferay support members to access the customer's 
-environment to analyze and diagnose issues in more detail. With Support Access, customer's can allow or disallow this access per environment.
+environment to analyze and diagnose issues in more detail. Customers can enable 
+or disable this access on an environment-by-environment basis. 
 
 | **Note:** Support access is enabled by default in each environment. 
 
