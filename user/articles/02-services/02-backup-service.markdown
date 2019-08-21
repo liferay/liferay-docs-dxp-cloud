@@ -65,59 +65,74 @@ Use the following shorthand syntax for common use cases:
 
 ## Uploading a Backup
 
-### Creating the Database And Volume Files to Upload
+To upload a backup, you must follow these steps: 
 
-#### Creating the Database File
+1.  [Create the database file](#creating-the-database-file). 
+2.  [Create the volume file](#creating-the-volume-file). 
+3.  [Invoke the backup API](#invoking-the-backup-api) 
+    with the database and volume files. 
 
-To create a MySQL dump file run the command
-`mysqldump -uroot -ppassword --databases --add-drop-database lportal | tar -czvf database.tgz`.
-Using the `database` and `add-drop-database` options is necessary for backup
-restores to work correctly. You can always use the `/backup/download` api to see
-how the backup service creates its MySQL dump file. Using these options will
-result in the dump file containing the follow code just before the create table
-statements.
+The following sections walk you through each step. 
 
-```sql
-    --
-    -- Current Database: `lportal`
-    --
+### Creating the Database File
 
-    /*!40000 DROP DATABASE IF EXISTS `lportal`*/;
+To create a MySQL dump file, run this command: 
 
-    CREATE DATABASE /*!32312 IF NOT EXISTS*/ `lportal` /*!40100 DEFAULT CHARACTER SET utf8 */;
-
-    USE `lportal`;
+```bash
+mysqldump -uroot -ppassword --databases --add-drop-database lportal | tar -czvf database.tgz
 ```
 
-#### Creating the Volume File
+The `databases` and `add-drop-database` options are necessary for backup 
+restoration to work correctly (you can also use the `/backup/download` API to 
+see how the backup service creates its MySQL dump file). With these options, the 
+resulting dump file contains the following code just before the create table 
+statements. 
 
-To create a volume run the command
-`cd $LIFERAY_HOME/data && tar -czvf volume.tgz document_library`.
+```sql
+--
+-- Current Database: `lportal`
+--
+
+/*!40000 DROP DATABASE IF EXISTS `lportal`*/;
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `lportal` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `lportal`;
+```
+
+### Creating the Volume File
+
+To create a volume run this command: 
+
+```bash
+cd $LIFERAY_HOME/data && tar -czvf volume.tgz document_library
+```
 
 ### Invoking the Backup API
 
-You can invoke the `/backup/upload` api using a command line tool such as
-`curl`. For authentication, use either basic authentication or a user's access
-token, which can be retrieved from the cookie `access_token`.
+You can invoke the `/backup/upload` API using a command line tool such as 
+`curl`. You can use either basic authentication or a user's access token, which 
+you can retrieve from the cookie `access_token`. 
 
-IMPORTANT NOTE:
+| **Note:** Passing the user token in the header `dxpcloud-authorization` only 
+| works for versions `3.2.0` or greater of the backup service. Previous versions 
+| should be upgraded to at least `3.2.0`. Requests to earlier versions must use 
+| the header `Authorization: Bearer <PROJECT_MASTER_TOKEN>`. You can find the 
+| project master token by running the command 
+| `env | grep LCP_PROJECT_MASTER_TOKEN` in any shell in the Liferay DXP Cloud 
+| console. 
 
-Passing in the user token in the header `dxpcloud-authorization` will only work
-for version `3.2.0` or greater of the backup service. Previous versions should
-be upgraded to at least `3.2.0`; otherwise, requests to a previous version need
-to use the header `Authorization: Bearer <PROJECT_MASTER_TOKEN>`. The project
-master token can be found by running the command
-`env | grep LCP_PROJECT_MASTER_TOKEN` in any shell in the Liferay DXP Cloud
-console.
+#### Parameters
 
-##### Parameters
+Name       | Type | Required |
+---------- | ---- | -------- |
+`database` | File | Yes      |
+`volume`   | File | Yes      |
 
-| Name     | Type | Required |
-| -------- | ---- | -------- |
-| database | file | ✓        |
-| volume   | file | ✓        |
+#### Curl Examples
 
-##### Curl Examples
+This example authenticates by passing the user token to the 
+`dxpcloud-authorization` header: 
 
 ```bash
 curl -X POST http://<HOST-NAME>/backup/upload /
@@ -127,7 +142,7 @@ curl -X POST http://<HOST-NAME>/backup/upload /
   -F 'volume=@/my-folder/volume.tgz'
 ```
 
-or
+This example authenticates with basic authentication: 
 
 ```bash
 curl -X POST http://<HOST-NAME>/backup/upload /
