@@ -69,7 +69,7 @@ To upload a backup, you must follow these steps:
 
 1.  [Create the database file](#creating-the-database-file). 
 2.  [Create the volume file](#creating-the-volume-file). 
-3.  [Invoke the backup API](#invoking-the-backup-api) 
+3.  [Invoke the upload API](#invoking-the-backup-api) 
     with the database and volume files. 
 
 The following sections walk you through each step. 
@@ -108,7 +108,7 @@ To create a volume run this command:
 cd $LIFERAY_HOME/data && tar -czvf volume.tgz document_library
 ```
 
-### Invoking the Backup API
+### Invoking the Upload API
 
 You can invoke the `/backup/upload` API using a command line tool such as 
 `curl`. You can use either basic authentication or a user's access token, which 
@@ -129,7 +129,7 @@ Name       | Type | Required |
 `database` | File | Yes      |
 `volume`   | File | Yes      |
 
-#### Curl Examples
+#### curl Examples
 
 This example authenticates by passing the user token to the 
 `dxpcloud-authorization` header: 
