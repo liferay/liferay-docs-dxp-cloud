@@ -16,7 +16,7 @@ staging and production environments for a project named *acme* can be named
 
 Despite this naming connection, each environment is independent. They're 
 segregated by a 
-[private network](https://help.liferay.com/hc/en-us/articles/360027973032) 
+[private network](/docs/-/knowledge_base/dxp-cloud/private-network) 
 that allows services from the same environment to communicate in a secure 
 manner without having to access the public internet. 
 
