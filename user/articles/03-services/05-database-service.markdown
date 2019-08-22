@@ -13,13 +13,46 @@ with your other services, not the public Internet.
 
 ## Environment Variables
 
-You can set these environment variables to configure the database service: 
+#### Common Environment Variables
 
-`LCP_DBNAME`: Your database's name. 
+You can set these environment variables to configure the database service. Care 
+should be taken when modifying the `LCP_MASTER_USER_NAME`, 
+`LCP_MASTER_USER_PASSWORD`, and `LCP_DBNAME` environment variables to make sure 
+that the same values are used for other services that depend on the database 
+service, such as the backup and Liferay services. Any customization of these 
+particular variables should happen before the first deployment. If a build is 
+generated with new values for these variables, subsequent deployments would 
+fail. In a development environment, it could be viable to delete services and 
+update the `LCP.json` file with values for the variables, but obviously deleting 
+services wouldn't be viable in a production environment. 
 
-`LCP_MASTER_USER_NAME`: The username for your database's primary user. 
+Name                       | Default Value              | Description      |
+-------------------------- | -------------------------- | ---------------- |
+`LCP_DBNAME`               | `lportal`                  | Database name.   |
+`LCP_MASTER_USER_NAME`     | `dxpcloud`                 | Master username. |
+`LCP_MASTER_USER_PASSWORD` | `LCP_PROJECT_MASTER_TOKEN` | Master password. |
 
-`LCP_MASTER_USER_PASSWORD`: The password for your database's primary user. 
+#### Google Cloud MySQL Flags
+
+Various MySQL flags can be passed in as environment variables; the various flags 
+are listed in 
+[Google documentation](https://cloud.google.com/sql/docs/mysql/flags). Each flag 
+must be prepended with `LCP_GCP_DATABASE_FLAG_` to work in Liferay DXP Cloud. 
+Below are two common flags would could be useful for debugging in a development 
+environment but should NOT be turned on in a production environment as they have 
+significant performance costs. 
+
+WARNING: 
+
+As noted in Google's documentation, some database flag settings can affect 
+instance availability or stability. Be very careful about customizing in this 
+way and follow Google's 
+[Operational Guidelines](https://cloud.google.com/sql/docs/mysql/operational-guidelines). 
+
+Name                                   | Acceptable Value | Default Value |
+-------------------------------------- | ---------------- | ------------- |
+`LCP_GCP_DATABASE_FLAG_GENERAL_LOG`    | `on, off`        | `off`         |
+`LCP_GCP_DATABASE_FLAG_SLOW_QUERY_LOG` | `on, off`        | `off`         |
 
 ## Managing Your Database
 

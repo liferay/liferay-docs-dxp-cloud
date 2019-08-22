@@ -10,6 +10,14 @@ services in your application, not with the outside Internet.
 
 ![Figure 1: The Elasticsearch service is one of several services available in DXP Cloud.](../../images/services-search.png)
 
+## Environment Variables
+
+This service has no specific environment variables custom to Liferay DXP Cloud. 
+All environment variables and other forms of configuration for Elasticsearch can 
+be found in official Elastisearch documentation and customized by using 
+configuration in the `config` directory or environment variables in the LCP.json 
+file. 
+
 ## Configurations
 
 Although DXP Cloud's services are fine-tuned to work well by default, you may 
@@ -43,9 +51,3 @@ place it in this directory structure:
 
 To deploy a license to the search service, you must create the path 
 `lcp/search/license/common` and put your license file there. 
-
-## Environment Variables
-
-You can set these environment variables to configure the search service: 
-
-`ES_JAVA_OPTS`: Configure the JVM's heap size. 

@@ -10,6 +10,29 @@ web server, Elasticsearch, and MySQL database.
 
 ![Figure 1: The Liferay DXP service is one of several services available in DXP Cloud.](../../images/services-dxp.png)
 
+## Environment Variables
+
+#### Specifying Portal Properties as Environment Variables
+
+Portal Properties can be defined as environment variables as defined in this 
+[Liferay documentation](https://portal.liferay.dev/docs/7-0/user/-/knowledge_base/u/environment-variables). 
+
+#### Common Environment Variables
+
+Name                                  | Default Value | Description                                                   |
+------------------------------------- | ------------- | ------------------------------------------------------------- |
+`LCP_PROJECT_LIFERAY_CLUSTER_ENABLED` | `false`       | Whether to enable clustering and communication between nodes. |
+
+#### Advanced Monitoring with Dynatrace
+
+To enable advanced monitoring with Dynatrace on Liferay DXP in production, you 
+must set two environment variables. 
+
+Name                                   | Default Value | Description                                                                                                                                                                            |
+-------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+`LCP_PROJECT_MONITOR_DYNATRACE_TENANT` |               | A string with eight characters. It's part of the URL (prefix) of your Dynatrace SaaS product.                                                                                          |
+`LCP_PROJECT_MONITOR_DYNATRACE_TOKEN`  |               | A string with 22 characters that you can find in your Dynatrace account at _Deploy Dynatrace_ &rarr; _Start installation_ &rarr; _Set up PaaS monitoring_ &rarr; _Installer Download_. |
+
 ## Deployment
 
 To install themes, portlets, or OSGi modules, you can include a WAR or JAR file 
@@ -22,7 +45,7 @@ Liferay DXP source code directory could look like this:
     │   └── com.liferay.apio.samples.portlet-1.0.0.jar
     └── LCP.json
 
-Under the hood, such files are copied to the `$LIFERAY_HOME/deploy` folder and
+Under the hood, such files are copied to the `$LIFERAY_HOME/deploy` folder and 
 deployed on startup. 
 
 ## Licenses
@@ -118,27 +141,3 @@ place it in the following directory structure:
     ├── script
     │ └── remove-log-files.sh
     └── LCP.json
-
-## Advanced Monitoring with Dynatrace
-
-To enable advanced monitoring with Dynatrace on Liferay DXP in production, you 
-must set two environment variables: 
-
-```json
-"environments": {
-  "prd": {
-    "env": {
-      "LCP_PROJECT_MONITOR_DYNATRACE_TENANT": "tot02934",
-      "LCP_PROJECT_MONITOR_DYNATRACE_TOKEN": "dDKSowkdID8dKDkCkepW"
-    }
-  }
-}
-```
-
-`LCP_PROJECT_MONITOR_DYNATRACE_TENANT`: The tenant value is a string with eight 
-characters. It's part of the URL (prefix) of your Dynatrace SaaS product. 
-
-`LCP_PROJECT_MONITOR_DYNATRACE_TOKEN`: The token is another string with 22 
-characters that you can find in your Dynatrace account at *Deploy Dynatrace* 
-&rarr; *Start installation* &rarr; *Set up PaaS monitoring* &rarr; 
-*Installer Download*. 
