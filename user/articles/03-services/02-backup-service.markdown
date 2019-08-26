@@ -15,20 +15,20 @@ needs.
 Use the following environment variables in your `LCP.json` file to achieve your 
 data redundancy goals. 
 
-Name                          | Default Value              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
------------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-`LCP_BACKUP_CREATE_SCHEDULE`  | `[5-55][0-1] \* \* \*`     | Cron schedule for creating a backup. If no value is specified in versions `3.2.1` and above a random default will be created.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-`LCP_BACKUP_FOLDER`           | `/opt/liferay/data`        | The Liferay folder to back up.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-`LCP_BACKUP_RETENTION_PERIOD` | `30`                       | Number of days to retain your backups. The maximum retention period is 30 days, even if you set this to a longer period of time.                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-`LCP_DATABASE_SERVICE`        | `database`                 | ID of the RDS database service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-`LCP_DBNAME`                  | `lportal`                  | Database name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-`LCP_MASTER_USER_NAME`        | `dxpcloud`                 | Master username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-`LCP_MASTER_USER_PASSWORD`    | `LCP_PROJECT_MASTER_TOKEN` | Master password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+Name                          | Default Value              | Description |
+----------------------------- | -------------------------- | ----------- |
+`LCP_BACKUP_CREATE_SCHEDULE`  | `[5-55][0-1] \* \* \*`     | The cron schedule for creating a backup. In versions `3.2.1` and above of the backup service, if no value is specified then a random default will be created. |
+`LCP_BACKUP_FOLDER`           | `/opt/liferay/data`        | The Liferay folder to back up. |
+`LCP_BACKUP_RETENTION_PERIOD` | `30`                       | The number of days to retain your backups. The maximum retention period is 30 days, even if you set this to a longer period of time. |
+`LCP_DATABASE_SERVICE`        | `database`                 | The database service's ID. |
+`LCP_DBNAME`                  | `lportal`                  | The database name. |
+`LCP_MASTER_USER_NAME`        | `dxpcloud`                 | The master username. |
+`LCP_MASTER_USER_PASSWORD`    | `LCP_PROJECT_MASTER_TOKEN` | The master password. |
 
 ## Scheduling
 
 You can customize the backup service's scheduling via 
-[Cron scheduling syntax](https://crontab.guru/). 
+[cron scheduling syntax](https://crontab.guru/). 
 Scheduling can be used for these variables: 
 
 -   `LCP_BACKUP_CREATE_SCHEDULE`
@@ -67,23 +67,30 @@ Use the following shorthand syntax for common use cases:
 
 ## Backup APIs
 
-### Invoking the APIs
+The backup service has APIs that you can use to download and upload backups. You 
+can invoke these APIs using a command line tool such as `curl`. 
 
-You can invoke the APIs using a command line tool such as `curl`. 
+### Getting the Host Name
 
-You can determine the host name of the backup service by finding it on the 
-services page. The host name of any service endpoint is constructed using three 
-pieces of information: the service name, the project name, and the environment 
-name. So for the service `backup`, project `project`, and environment `prd`, the 
-host name would be `backup-project-prd.lfr.cloud`. 
+To invoke the backup APIs, you must have the backup service's host name, which 
+you can find on the Services page. The service name, project name, and 
+environment name combine to make up the host name. 
+
+Consider this example: 
+
+-   Service name: `backup`
+-   Project name: `lfrjoebloggs`
+-   Environment name: `prd`
+-   Host name: `backup-project-prd.lfr.cloud`
 
 ### Authentication
 
-You can authenticate using basic authentication; the curl examples to follow all 
-use basic authentication. A user access token can also be used, which would be 
-necessary if SSO is enabled. This token can be retrieved from the cookie 
-`access_token`. The user token is used with the `dxpcloud-authorization` header; 
-below is an example for the upload API. 
+You can authenticate your request with basic authentication or a user access 
+token. Note that token authentication is required if SSO is enabled. You can 
+retrieve this token from the cookie `access_token` and use it with the 
+`dxpcloud-authorization` header. 
+
+Here's an example that uses token authentication with the upload API: 
 
 ```bash
 curl -X POST /
@@ -104,7 +111,7 @@ curl -X POST /
 
 ### Download Database API
 
-This endpoint returns a compressed file of type ".tgz". 
+The API for downloading a database contains an endpoint that returns a TGZ file. 
 
 #### Parameters
 
@@ -124,7 +131,7 @@ curl -X POST /
 
 ### Download Volume API
 
-This endpoint returns a compressed file of type ".tgz". 
+The API for downloading a volume contains an endpoint that returns a TGZ file. 
 
 #### Parameters
 
@@ -144,27 +151,15 @@ curl -X POST \
 
 ### Upload Backup API
 
-#### Parameters
+The upload backup API lets you upload a backup to DXP Cloud. To upload a backup, 
+you must follow these steps: 
 
-Name       | Type   | Required |
----------- | ------ | -------- |
-`database` | `File` | Yes      |
-`volume`   | `File` | Yes      |
+1.  [Create the database file](#creating-the-database-file). 
+2.  [Create the volume file](#creating-the-volume-file). 
+3.  [Invoke the backup API](#invoking-the-backup-api) 
+    with the database and volume files. 
 
-#### curl Example
-
-```bash
-curl -X POST /
-  http://<HOST-NAME>/backup/upload /
-  -H 'Content-Type: multipart/form-data' /
-  -F 'database=@/my-folder/database.tgz' /
-  -F 'volume=@/my-folder/volume.tgz' /
-  -u user@domain.com:password
-```
-
-## Creating Files to Upload
-
-### Creating the Database File
+#### Creating the Database File
 
 To create a MySQL dump file, run this command: 
 
@@ -190,10 +185,30 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `lportal` /*!40100 DEFAULT CHARACTER SE
 USE `lportal`;
 ```
 
-### Creating the Volume File
+#### Creating the Volume File
 
-To create a volume run this command: 
+Run this command to create the volume file: 
 
 ```bash
 cd $LIFERAY_HOME/data && tar -czvf volume.tgz document_library
+```
+
+#### Invoking the Backup API
+
+**Parameters**
+
+Name       | Type   | Required |
+---------- | ------ | -------- |
+`database` | `File` | Yes      |
+`volume`   | `File` | Yes      |
+
+**curl Example**
+
+```bash
+curl -X POST /
+  http://<HOST-NAME>/backup/upload /
+  -H 'Content-Type: multipart/form-data' /
+  -F 'database=@/my-folder/database.tgz' /
+  -F 'volume=@/my-folder/volume.tgz' /
+  -u user@domain.com:password
 ```
