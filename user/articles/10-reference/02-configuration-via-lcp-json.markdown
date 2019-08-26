@@ -1,13 +1,14 @@
 ---
-header-id: configuring-via-lcp-json
+header-id: configuration-via-lcp-json
 ---
 
-# Configuring via LCP.json
+# Configuration via LCP.json
 
-DXP Cloud uses the `LCP.json` file to configure your container. You can use this 
-file to configure properties like the service ID, memory, number of CPUs, 
-environment variables, volumes, and much more. This table lists the properties 
-you can add to `LCP.json`: 
+Each service in your DXP Cloud environments has an `LCP.json` file that you can 
+use to configure the service. You can configure properties like the service ID, 
+memory, number of CPUs, environment variables, volumes, and much more. 
+
+This table lists the properties you can add to `LCP.json`: 
 
 Field | Type | Default Value | Description |
 ----- | ---- | ------------- | ----------- |
@@ -25,6 +26,7 @@ Field | Type | Default Value | Description |
 `kind` | String | Deployment | Deployment type (e.g, Deployment or StatefulSet) |
 `ports` | Array | `[]` | Declaration of ports and protocols |
 `environments` | Object | `{}` | Environment-specific configurations |
+`deploy` | Boolean | `true` | Whether the service will be deployed for the specified environment. Only use this property inside the `environments` property; not at the root level. See the sample `LCP.json` file. |
 
 ## Usage
 
@@ -36,7 +38,7 @@ Here's an example `LCP.json` file that uses all the properties:
   "image": "liferaycloud/example",
   "env": {
     "DB_USER": "root",
-    "DB_PASSWORD": "pass123",
+    "DB_PASSWORD": "pass123"
   },
   "loadBalancer": {
     "cdn": true,
@@ -67,7 +69,7 @@ Here's an example `LCP.json` file that uses all the properties:
       "command": ["cat", "/tmp/healthy"]
     },
     "initialDelaySeconds": 40,
-    "periodSeconds": 5,
+    "periodSeconds": 5
   },
   "dependencies": ["service1", "service2"],
   "kind": "statefulSet",
@@ -87,7 +89,7 @@ Here's an example `LCP.json` file that uses all the properties:
   "environments": {
     "prd": {
       "memory": 4096,
-      "cpu": 6,
+      "cpu": 6
     },
     "dev": {
       "deploy": false
