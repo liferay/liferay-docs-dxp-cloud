@@ -85,14 +85,41 @@ empty or missing altogether. For testing, however, you may find it useful.
 
 ## Clustering
 
-Clustering Liferay DXP on DXP Cloud is straightforward: set the environment 
-variable `LCP_PROJECT_LIFERAY_CLUSTER_ENABLED` to `true`. This instructs the 
-image startup process to add the clustering configuration to Liferay DXP. 
+### Enabling Clustering
+
+Clustering Liferay DXP on DXP Cloud is straightforward. First, set the 
+environment variable `LCP_PROJECT_LIFERAY_CLUSTER_ENABLED` to `true`. This 
+instructs the image startup process to add the clustering configuration to 
+Liferay DXP. Second, increase the scale in `LCP.json` to the desired number of 
+nodes. 
 
 Behind the scenes, the image startup process copies the files 
 `portal-clu.properties` and `unicast.xml` to the Liferay Home folder. These 
 files contain the configuration needed to run a Liferay DXP cluster on DXP 
 Cloud. 
+
+### Verifying Clustering is Working
+
+To check if clustering is working correctly, examine the Liferay logs of 
+the different running instances to find the lines with the `Accepted View` 
+message from the `JGroupsReceiver` class. Below are some sample logs: 
+
+```shell
+Aug 26 09:42:22.778 build-90 [liferay-68b8f6b48d-hdj9t] [dxp] INFO  [Incoming-2,liferay-channel-transport-0,liferay-68b8f6b48d-hdj9t-23003][JGroupsReceiver:91] Accepted view [liferay-68b8f6b48d-r8r5f-1292|8] (3) [liferay-68b8f6b48d-r8r5f-1292, liferay-68b8f6b48d-gzsg4-15389, liferay-68b8f6b48d-hdj9t-23003]
+Aug 26 09:42:22.779 build-90 [liferay-68b8f6b48d-hdj9t] [dxp] INFO  [Incoming-1,liferay-channel-control,liferay-68b8f6b48d-hdj9t-17435][JGroupsReceiver:91] Accepted view [liferay-68b8f6b48d-r8r5f-29669|8] (3) [liferay-68b8f6b48d-r8r5f-29669, liferay-68b8f6b48d-gzsg4-48301, liferay-68b8f6b48d-hdj9t-17435]
+```
+
+`Accepted view [liferay-68b8f6b48d-r8r5f-1292|8]` tells us that 
+`liferay-68b8f6b48d-r8r5f-1292` is master and 
+`(3) [liferay-68b8f6b48d-r8r5f-29669, liferay-68b8f6b48d-gzsg4-48301, liferay-68b8f6b48d-hdj9t-17435]` 
+tells us that `(3)` nodes are part of the cluster as well as the ids of the 
+nodes. This list includes the master node in addition to the slave nodes. 
+
+### Clustering and Auto-scaling
+
+The `scale` attribute of `LCP.json` and auto-scaling features work together. By 
+specifying `scale` the initial number of instances is set. If auto-scaling is 
+enabled the number of instances will increase according to demand. 
 
 ## Hotfixes
 
