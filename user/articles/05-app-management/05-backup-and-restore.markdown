@@ -13,7 +13,7 @@ volumes, and the Documents and Media folder.
 To create a manual backup, go to your production environment's page, select the 
 *Backups* tab in the left menu, and click *Backup Now*. You can also use 
 environment variables to set an interval for automated backups. See 
-[Backup Service](https://help.liferay.com/hc/en-us/articles/360027968772) 
+[Backup Service](/docs/-/knowledge_base/dxp-cloud/backup-service) 
 to learn more about configuring this service. 
 
 ![Figure 1: You can create backups in DXP Cloud.](../../images/backups.png)
