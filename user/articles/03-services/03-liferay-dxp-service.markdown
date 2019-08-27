@@ -10,29 +10,6 @@ web server, Elasticsearch, and MySQL database.
 
 ![Figure 1: The Liferay DXP service is one of several services available in DXP Cloud.](../../images/services-dxp.png)
 
-## Environment Variables
-
-### Specifying Portal Properties as Environment Variables
-
-Portal Properties can be defined as environment variables as defined in this 
-[Liferay documentation](https://portal.liferay.dev/docs/7-0/user/-/knowledge_base/u/environment-variables). 
-
-### Common Environment Variables
-
-Name                                  | Default Value | Description  |
-------------------------------------- | ------------- | ------------ |
-`LCP_PROJECT_LIFERAY_CLUSTER_ENABLED` | `false`       | Whether to enable clustering and communication between nodes. |
-
-### Advanced Monitoring with Dynatrace
-
-To enable advanced monitoring with Dynatrace on Liferay DXP in production, you 
-must set two environment variables. 
-
-Name                                   | Default Value | Description |
--------------------------------------- | ------------- | ----------- |
-`LCP_PROJECT_MONITOR_DYNATRACE_TENANT` |               | A string with eight characters. It's part of the URL (prefix) of your Dynatrace SaaS product. |
-`LCP_PROJECT_MONITOR_DYNATRACE_TOKEN` |               | A string with 22 characters that you can find in your Dynatrace account at *Deploy Dynatrace* &rarr; *Start installation* &rarr; *Set up PaaS monitoring* &rarr; *Installer Download*. |
-
 ## Deployment
 
 To install themes, portlets, or OSGi modules, you can include a WAR or JAR file 
@@ -105,6 +82,35 @@ for more information.
 configuration. Since you should set most of your properties in 
 `portal-all.properties` and `portal-env.properties`, this file is typically 
 empty or missing altogether. For testing, however, you may find it useful. 
+
+Note that portal properties can be defined as environment variables, as 
+instructed in 
+[Liferay DXP's documentation](/docs/7-0/user/-/knowledge_base/u/environment-variables). 
+
+## Environment Variables
+
+Name                                  | Default Value | Description  |
+------------------------------------- | ------------- | ------------ |
+`LCP_PROJECT_LIFERAY_CLUSTER_ENABLED` | `false`       | Whether to enable clustering and communication between nodes. |
+`LCP_PROJECT_MONITOR_DYNATRACE_TENANT` |               | A string with eight characters. It's part of the URL (prefix) of your Dynatrace SaaS product. |
+`LCP_PROJECT_MONITOR_DYNATRACE_TOKEN` |               | A string with 22 characters that you can find in your Dynatrace account at *Deploy Dynatrace* &rarr; *Start installation* &rarr; *Set up PaaS monitoring* &rarr; *Installer Download*. |
+
+## Advanced Monitoring with Dynatrace
+
+To enable advanced monitoring with Dynatrace on Liferay DXP in production, you 
+must set the two `*_DYNATRACE_*` environment variables described in the above 
+table. Here's an example:
+
+```json
+"environments": {
+  "prd": {
+    "env": {
+      "LCP_PROJECT_MONITOR_DYNATRACE_TENANT": "tot02934",
+      "LCP_PROJECT_MONITOR_DYNATRACE_TOKEN": "dDKSowkdID8dKDkCkepW"
+    }
+  }
+}
+```
 
 ## Clustering
 
