@@ -10,14 +10,6 @@ services in your application, not with the outside Internet.
 
 ![Figure 1: The Elasticsearch service is one of several services available in DXP Cloud.](../../images/services-search.png)
 
-## Environment Variables
-
-This service has no specific environment variables custom to Liferay DXP Cloud. 
-All environment variables and other forms of configuration for Elasticsearch can 
-be found in official Elastisearch documentation and customized by using 
-configuration in the `config` directory or environment variables in the LCP.json 
-file. 
-
 ## Configurations
 
 Although DXP Cloud's services are fine-tuned to work well by default, you may 
@@ -31,6 +23,14 @@ configuration. Here's an example folder structure of such a file inside the
     ├── config
     │ └── elasticsearch.yml
     └── LCP.json
+
+## Environment Variables
+
+This service has no environment variables specific to DXP Cloud. All environment 
+variables and other forms of configuration for Elastisearch are in the 
+[official Elastisearch documentation](https://www.elastic.co/guide/index.html). 
+You can set such configurations and environment variables in the `config` 
+directory and `LCP.json`, respectively. 
 
 ## Scripts
 

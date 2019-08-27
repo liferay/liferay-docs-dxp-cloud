@@ -2,13 +2,6 @@
 header-id: web-server-service-nginx
 ---
 
-## Environment Variables
-
-This service has no specific environment variables custom to Liferay DXP Cloud. 
-All environment variables and other forms of configuration for Nginx can be 
-found in official Nginx documentation and customized by using configuration in 
-the `config` directory or environment variables in the LCP.json file. 
-
 # Web Server Service (Nginx)
 
 The Nginx web server functions as a gateway from the open Internet to your DXP 
@@ -30,6 +23,14 @@ configuration. Here's an example folder structure of such a file inside the
     ├── config
     │ └── nginx.conf
     └── LCP.json
+
+## Environment Variables
+
+This service has no environment variables specific to DXP Cloud. All environment 
+variables and other forms of configuration for Nginx are in the 
+[official Nginx documentation](https://docs.nginx.com/). 
+You can set such configurations and environment variables in the `config` 
+directory and `LCP.json`, respectively. 
 
 ## Scripts
 

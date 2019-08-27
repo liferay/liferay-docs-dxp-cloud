@@ -13,18 +13,15 @@ with your other services, not the public Internet.
 
 ## Environment Variables
 
-#### Common Environment Variables
-
-You can set these environment variables to configure the database service. Care 
-should be taken when modifying the `LCP_MASTER_USER_NAME`, 
-`LCP_MASTER_USER_PASSWORD`, and `LCP_DBNAME` environment variables to make sure 
-that the same values are used for other services that depend on the database 
-service, such as the backup and Liferay services. Any customization of these 
-particular variables should happen before the first deployment. If a build is 
-generated with new values for these variables, subsequent deployments would 
-fail. In a development environment, it could be viable to delete services and 
-update the `LCP.json` file with values for the variables, but obviously deleting 
-services wouldn't be viable in a production environment. 
+You can set these environment variables to configure the database service. 
+When setting `LCP_MASTER_USER_NAME`, `LCP_MASTER_USER_PASSWORD`, and 
+`LCP_DBNAME`, make sure to use the same values for other services that depend on 
+the database service (e.g., the backup and Liferay DXP services). You should set 
+these variables before the first deployment. If a build is generated with new 
+values for these variables, subsequent deployments will fail. It may be viable 
+in a development environment to delete services and update the `LCP.json` file 
+with new values for these variables, but this isn't viable in a production 
+environment. 
 
 Name                       | Default Value              | Description      |
 -------------------------- | -------------------------- | ---------------- |
@@ -34,20 +31,18 @@ Name                       | Default Value              | Description      |
 
 #### Google Cloud MySQL Flags
 
-Various MySQL flags can be passed in as environment variables; the various flags 
-are listed in 
-[Google documentation](https://cloud.google.com/sql/docs/mysql/flags). Each flag 
-must be prepended with `LCP_GCP_DATABASE_FLAG_` to work in Liferay DXP Cloud. 
-Below are two common flags would could be useful for debugging in a development 
-environment but should NOT be turned on in a production environment as they have 
+You can pass MySQL flags in as environment variables. The available flags are 
+listed in the 
+[Google Cloud documentation](https://cloud.google.com/sql/docs/mysql/flags). 
+Each flag must be prepended with `LCP_GCP_DATABASE_FLAG_` to work in Liferay DXP 
+Cloud. Below are common flags that can be useful for debugging in a development 
+environment, but should NOT be used in a production environment as they have 
 significant performance costs. 
 
-WARNING: 
-
-As noted in Google's documentation, some database flag settings can affect 
-instance availability or stability. Be very careful about customizing in this 
-way and follow Google's 
-[Operational Guidelines](https://cloud.google.com/sql/docs/mysql/operational-guidelines). 
+| **Warning:** As noted in Google's documentation, some database flag settings 
+| can affect instance availability or stability. Be very careful when using 
+| these flags and follow Google's 
+| [Operational Guidelines](https://cloud.google.com/sql/docs/mysql/operational-guidelines). 
 
 Name                                   | Acceptable Value | Default Value |
 -------------------------------------- | ---------------- | ------------- |

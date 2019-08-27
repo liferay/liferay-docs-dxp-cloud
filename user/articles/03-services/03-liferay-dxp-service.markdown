@@ -12,26 +12,26 @@ web server, Elasticsearch, and MySQL database.
 
 ## Environment Variables
 
-#### Specifying Portal Properties as Environment Variables
+### Specifying Portal Properties as Environment Variables
 
 Portal Properties can be defined as environment variables as defined in this 
 [Liferay documentation](https://portal.liferay.dev/docs/7-0/user/-/knowledge_base/u/environment-variables). 
 
-#### Common Environment Variables
+### Common Environment Variables
 
-Name                                  | Default Value | Description                                                   |
-------------------------------------- | ------------- | ------------------------------------------------------------- |
+Name                                  | Default Value | Description  |
+------------------------------------- | ------------- | ------------ |
 `LCP_PROJECT_LIFERAY_CLUSTER_ENABLED` | `false`       | Whether to enable clustering and communication between nodes. |
 
-#### Advanced Monitoring with Dynatrace
+### Advanced Monitoring with Dynatrace
 
 To enable advanced monitoring with Dynatrace on Liferay DXP in production, you 
 must set two environment variables. 
 
-Name                                   | Default Value | Description                                                                                                                                                                            |
--------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-`LCP_PROJECT_MONITOR_DYNATRACE_TENANT` |               | A string with eight characters. It's part of the URL (prefix) of your Dynatrace SaaS product.                                                                                          |
-`LCP_PROJECT_MONITOR_DYNATRACE_TOKEN`  |               | A string with 22 characters that you can find in your Dynatrace account at _Deploy Dynatrace_ &rarr; _Start installation_ &rarr; _Set up PaaS monitoring_ &rarr; _Installer Download_. |
+Name                                   | Default Value | Description |
+-------------------------------------- | ------------- | ----------- |
+`LCP_PROJECT_MONITOR_DYNATRACE_TENANT` |               | A string with eight characters. It's part of the URL (prefix) of your Dynatrace SaaS product. |
+`LCP_PROJECT_MONITOR_DYNATRACE_TOKEN` |               | A string with 22 characters that you can find in your Dynatrace account at *Deploy Dynatrace* &rarr; *Start installation* &rarr; *Set up PaaS monitoring* &rarr; *Installer Download*. |
 
 ## Deployment
 
