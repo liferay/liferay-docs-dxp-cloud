@@ -17,6 +17,10 @@ Variables* tab and add as many variables as you need. Enter each environment
 variable as a key-value pair, with the variable name (key) in a field on the 
 left, and the value in the field to its right. 
 
+| **Note:** Changes won't take place until clicking the save button. Once the 
+| save button is clicked the effected service will actually restart with the 
+| newly defined environment variable values. 
+
 ![Figure 1: You can add environment variables via the web console.](../../images/env-vars-add-web-console.png)
 
 ## Adding Environment Variables via LCP.json
