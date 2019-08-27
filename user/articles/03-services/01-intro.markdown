@@ -8,6 +8,18 @@ DXP Cloud contains several built-in services that provide its functionality and
 help you manage your projects. You can use and configure these services to fit 
 your project's needs. 
 
+## Updating Service Images
+
+Please check back to our 
+[services changelog](https://help.liferay.com/hc/en-us/categories/360001192512-Liferay-DXP-Cloud-Announcements) 
+frequently to make sure you are using the most up-to-date service images. In the 
+future, we plan to notify customers when new images become available through the 
+console. All Liferay DXP Cloud images are hosted at 
+https://hub.docker.com/u/liferaycloud. After finding the latest images, update 
+them in `gradle.properties` in your Liferay DXP Cloud workspace. 
+
+## Available Services
+
 **Backup Service:** Creates regular backups of your Liferay DXP database and 
 Document Library. 
 
