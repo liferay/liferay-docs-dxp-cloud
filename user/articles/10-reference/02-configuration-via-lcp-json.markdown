@@ -4,33 +4,35 @@ header-id: configuration-via-lcp-json
 
 # Configuration via LCP.json
 
-Each service in your DXP Cloud environments has an `LCP.json` file that you can 
-use to configure the service. You can configure properties like the service ID, 
-memory, number of CPUs, environment variables, volumes, and much more. 
+Each service in your DXP Cloud environments has an `LCP.json` file that you can
+use to configure the service. You can configure properties like the service ID,
+memory, number of CPUs, environment variables, volumes, and much more.
 
-This table lists the properties you can add to `LCP.json`: 
+This table lists the properties you can add to `LCP.json`:
 
-Field | Type | Default Value | Description |
------ | ---- | ------------- | ----------- |
-`id` | String | random | The service ID |
-`image` | String | `""` | The service image from Docker Hub |
-`env` | Object | undefined | Environment variables |
-`loadBalancer` | Object | `{}` | Declaration of exposed ports and domains |
-`cpu` | Number | `1` | Number of CPUs |
-`scale` | Number | `1` | Starting number of instances |
-`memory` | Number | `512` | Amount of memory (MB) |
-`volumes` | Object | undefined | Paths to persist data |
-`readinessProbe` | Object | `{}` | Service readiness check |
-`livenessProbe` | Object | `{}` | Service liveness check |
-`dependencies` | Array | `[]` | Dependency deployment order |
-`kind` | String | Deployment | Deployment type (e.g, Deployment or StatefulSet) |
-`ports` | Array | `[]` | Declaration of ports and protocols |
-`environments` | Object | `{}` | Environment-specific configurations |
-`deploy` | Boolean | `true` | Whether the service will be deployed for the specified environment. Only use this property inside the `environments` property; not at the root level. See the sample `LCP.json` file. |
+Field            | Type    | Default Value                 | Description                                                                                                                                                                                                                                                                   |
+---------------- | ------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+`id`             | String  | random                        | The service ID                                                                                                                                                                                                                                                                |
+`image`          | String  | `""`                          | The service image from Docker Hub                                                                                                                                                                                                                                             |
+`env`            | Object  | undefined                     | Environment variables                                                                                                                                                                                                                                                         |
+`loadBalancer`   | Object  | `{}`                          | Declaration of exposed ports and domains                                                                                                                                                                                                                                      |
+`cpu`            | Number  | `1`                           | Number of CPUs                                                                                                                                                                                                                                                                |
+`scale`          | Number  | `1`                           | Starting number of instances                                                                                                                                                                                                                                                  |
+`memory`         | Number  | `512`                         | Amount of memory (MB)                                                                                                                                                                                                                                                         |
+`volumes`        | Object  | undefined                     | Paths to persist data                                                                                                                                                                                                                                                         |
+`readinessProbe` | Object  | `{}`                          | Service readiness check                                                                                                                                                                                                                                                       |
+`livenessProbe`  | Object  | `{}`                          | Service liveness check                                                                                                                                                                                                                                                        |
+`dependencies`   | Array   | `[]`                          | Dependency deployment order                                                                                                                                                                                                                                                   |
+`kind`           | String  | Deployment                    | Deployment type (e.g, Deployment or StatefulSet)                                                                                                                                                                                                                              |
+`ports`          | Array   | `[]`                          | Declaration of ports and protocols                                                                                                                                                                                                                                            |
+`environments`   | Object  | `{}`                          | Environment-specific configurations                                                                                                                                                                                                                                           |
+`deploy`         | Boolean | `true`                        | Whether the service will be deployed for the specified environment. Only use this property inside the `environments` property; not at the root level. See the sample `LCP.json` file.                                                                                         |
+`canAutoscale`   | Boolean | `false`                       | Whether auto-scaling is enabled by default when a service is deployed.                                                                                                                                                                                                        |
+`autoscale`      | Object  | `{ "cpu": 80, "memory": 80 }` | The target average utilization for both CPU and memory for auto-scaling purposes. Kubernetes uses these numbers in its upscaling/downscaling algorithm. For more information about how auto-scaling works, see [Auto-scaling](/docs/-/knowledge_base/dxp-cloud/auto-scaling). |
 
 ## Usage
 
-Here's an example `LCP.json` file that uses all the properties: 
+Here's an example `LCP.json` file that uses all the properties:
 
 ```json
 {
@@ -94,6 +96,11 @@ Here's an example `LCP.json` file that uses all the properties:
     "dev": {
       "deploy": false
     }
+  },
+  "canAutoscale": true,
+  "autoscale": {
+    "cpu": 90,
+    "memory": 90
   }
 }
 ```
