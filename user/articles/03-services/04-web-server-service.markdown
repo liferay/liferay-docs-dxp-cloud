@@ -24,6 +24,14 @@ configuration. Here's an example folder structure of such a file inside the
     │ └── nginx.conf
     └── LCP.json
 
+## Environment Variables
+
+This service has no environment variables specific to DXP Cloud. All environment 
+variables and other forms of configuration for Nginx are in the 
+[official Nginx documentation](https://docs.nginx.com/). 
+You can set such configurations and environment variables in the `config` 
+directory and `LCP.json`, respectively. 
+
 ## Scripts
 
 You can use scripts for more extensive customizations. However, use caution when 
