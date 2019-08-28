@@ -27,14 +27,6 @@ automatically according to predefined thresholds.
 
 ![Figure 1: Enable or disable auto-scaling from your service's Scale tab.](../../images/auto-scaling.png)
 
-Alternatively, you can set the `canAutoscale` flag to `true` in the `LCP.json` 
-file to enable auto-scaling as soon as the backup service deploys. Using this 
-approach you can still disable auto-scaling through the console. 
-
-```json
-"canAutoscale": true
-```
-
 ## Specifying Target Average Utilization
 
 To specify the target average utilization, add the following to `LCP.json`: 
