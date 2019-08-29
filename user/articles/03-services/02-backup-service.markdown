@@ -17,7 +17,7 @@ data redundancy goals.
 
 Name                          | Default Value              | Description |
 ----------------------------- | -------------------------- | ----------- |
-`LCP_BACKUP_CREATE_SCHEDULE`  | `[5-55][0-1] \* \* \*`     | The cron schedule for creating a backup. In versions `3.2.1` and above of the backup service, if no value is specified then a random default will be created. |
+`LCP_BACKUP_CREATE_SCHEDULE`  | `[5-55][0-1] * * *`     | The cron schedule for creating a backup. In versions `3.2.1` and above of the backup service, if no value is specified then a random default will be created. |
 `LCP_BACKUP_FOLDER`           | `/opt/liferay/data`        | The Liferay folder to back up. |
 `LCP_BACKUP_RETENTION_PERIOD` | `30`                       | The number of days to retain your backups. The maximum retention period is 30 days, even if you set this to a longer period of time. |
 `LCP_DATABASE_SERVICE`        | `database`                 | The database service's ID. |
@@ -81,7 +81,7 @@ Consider this example:
 -   Service name: `backup`
 -   Project name: `lfrjoebloggs`
 -   Environment name: `prd`
--   Host name: `backup-project-prd.lfr.cloud`
+-   Host name: `backup-lfrjoebloggs-prd.lfr.cloud`
 
 ### Authentication
 
@@ -146,7 +146,7 @@ curl -X POST \
   https://<HOST-NAME>/backup/download/volume/:id /
   -H 'Content-Type: application/json' /
   -u user@domain.com:password /
-   --output volume.tgz
+  --output volume.tgz
 ```
 
 ### Upload Backup API
