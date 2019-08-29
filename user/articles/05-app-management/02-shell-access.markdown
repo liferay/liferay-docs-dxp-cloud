@@ -11,7 +11,7 @@ For example, you can use the shell to look for side effects not easily spotted
 in the logs. You can also call functions for data population or report 
 generation that are meant to run only once. 
 
-| **Note:** the backup and database services do not provide shell access. 
+| **Note:** The backup and database services do not provide shell access. 
 
 ## Accessing the Shell via the Web Console
 

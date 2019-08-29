@@ -8,9 +8,9 @@ It's important for production applications' data to be safe. DXP Cloud can
 backup and restore data. All backups save a dump of the database, environment 
 volumes, and the Documents and Media folder. 
 
-| **Note:** Backups can be created, viewed, and restored from the backups page,
-| which can only be viewed on a production type environment. From this page
-| backups can be restored to any environment that a user has access to.
+| **Note:** The Backups tab is only available on production environments. From 
+| this tab, you can restore backups to any environment that a user has access 
+| to. 
 
 ## Creating a Backup
 

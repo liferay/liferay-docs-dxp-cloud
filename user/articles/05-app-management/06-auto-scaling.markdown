@@ -7,19 +7,19 @@ header-id: auto-scaling
 Whether due to a traffic spike, memory leak, or some other issue, sometimes a 
 service must be upscaled or downscaled to perform well. DXP Cloud's auto-scaling 
 feature automatically creates and destroys instances of a service as needed to 
-optimize performance. Therefore you don't need to worry about doing so manually. 
+optimize performance. You therefore don't need to worry about doing so manually. 
 
-A service can automatically upscale to 10 instances maximum and downscale to 
-whatever number is specified for the `scale` property in `LCP.json`. The `scale` 
+A service can automatically upscale to 10 instances maximum, and downscale to 
+the number specified for the `scale` property in `LCP.json`. The `scale` 
 property specifies the minimum number of instances that can run for a given 
 service.
 
-| **Note:** Currently, this feature is only available for the Liferay service. 
-| Furthermore, the feature is only enabled for production type environments. 
+| **Note:** Currently, this feature is only available for the Liferay DXP 
+| service in production environments. 
 
-## Enabling Auto Scaling
+## Enabling Auto-scaling
 
-You can enable auto-scaling for Liferay via its *Scale* tab. Navigate to 
+You can enable auto-scaling for Liferay DXP via its *Scale* tab. Navigate to 
 *Services* &rarr; *Liferay* &rarr; *Scale* and click *Enable Auto Scaling*. If 
 auto-scaling is enabled, you can click *Disable Auto Scaling* to disable it. 
 With auto-scaling enabled, DXP Cloud monitors your service and scales it 
