@@ -19,9 +19,14 @@ service.
 
 ## Enabling Auto-scaling
 
-You can enable auto-scaling for Liferay DXP via its *Scale* tab. Navigate to 
-*Services* &rarr; *Liferay* &rarr; *Scale* and click *Enable Auto Scaling*. If 
-auto-scaling is enabled, you can click *Disable Auto Scaling* to disable it. 
+Follow these steps to enable or disable auto-scaling: 
+
+1.  Navigate to *Services* &rarr; *Liferay* &rarr; *Scale* and click 
+    *Enable Auto Scaling*. 
+
+2.  If auto-scaling is disabled, click *Enable Auto Scaling* to enable it. If 
+    auto-scaling is already enabled, click *Disable Auto Scaling* to disable it. 
+
 With auto-scaling enabled, DXP Cloud monitors your service and scales it 
 automatically according to predefined thresholds. 
 
@@ -29,7 +34,21 @@ automatically according to predefined thresholds.
 
 ## Specifying Target Average Utilization
 
-To specify the target average utilization, add the following to `LCP.json`: 
+*Target average utilization* represents a *percentage average* of memory and/or 
+CPU usage. For example, if three service instances utilize 70%, 90%, and 95% of 
+memory, respectively, then the average memory utilization is 85%. If the target 
+average utilization is set to 90, then no upscaling is needed; upscaling in this 
+situation only occurs when the average memory utilization exceeds the target. 
+Remember that the total available memory is specified by the `memory` property 
+in `LCP.json`, as referenced in 
+[Configuration via LCP.json](/docs/-/knowledge_base/dxp-cloud/configuration-via-lcp-json). 
+
+For a more in-depth look at the algorithm used to dynamically upscale and 
+downscale, see the 
+[Kubernetes documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#algorithm-details). 
+
+Specify the target average utilization in the `autoscale` property of the 
+service's `LCP.json`: 
 
 ```json
 "autoscale": {
@@ -38,18 +57,5 @@ To specify the target average utilization, add the following to `LCP.json`:
 }
 ```
 
-If the `autoscale` property is not used, the target average utilization defaults 
+If the `autoscale` property isn't set, the target average utilization defaults 
 to 80 for both CPU and memory utilization. 
-
-So what does target average utilization mean? Here is a brief explanation: 
-
-*Target average utilization* represents a *percentage average*. So for 3 
-instances of a service with memory utilization at 70%, 90%, and 95%, the average 
-memory utilization would be 85%. Since 85 is below 90, no upscaling is needed. 
-Remember that the total available memory is specified by the `memory` property 
-in `LCP.json`, as referenced in 
-[Configuration via LCP.json](/docs/-/knowledge_base/dxp-cloud/configuration-via-lcp-json). 
-
-For a more in-depth look at the algorithm used to dynamically upscale and 
-downscale, please refer to 
-[Kubernetes auto-scaling algorithm](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#algorithm-details). 
