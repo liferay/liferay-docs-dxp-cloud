@@ -43,10 +43,6 @@ Remember that the total available memory is specified by the `memory` property
 in `LCP.json`, as referenced in 
 [Configuration via LCP.json](/docs/-/knowledge_base/dxp-cloud/configuration-via-lcp-json). 
 
-For a more in-depth look at the algorithm used to dynamically upscale and 
-downscale, see the 
-[Kubernetes documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#algorithm-details). 
-
 Specify the target average utilization in the `autoscale` property of the 
 service's `LCP.json`: 
 

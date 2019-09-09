@@ -20,10 +20,8 @@ To add environment variables to your service, follow these steps:
     key-value pair, with the variable name (key) in a field on the left, and the 
     value in the field to its right. 
 
-3.  Click *Save*. 
-
-| **Note:** Your changes aren't registered until you click the Save button. Once 
-| you do so, the service restarts with the new environment variable values. 
+3.  Click *Save*. The service now restarts with the updated environment 
+    variables. 
 
 ![Figure 1: You can add environment variables via the web console.](../../images/env-vars-add-web-console.png)
 
