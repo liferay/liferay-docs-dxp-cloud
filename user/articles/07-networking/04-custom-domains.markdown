@@ -5,18 +5,17 @@ header-id: custom-domains
 # Custom Domains
 
 To add a custom domain to a DXP Cloud service, you must first register that 
-domain with the dedicated environment IP as an `A` record. Do this using any 
-domain name registrar of your choice. Officially DNS propogation takes up to 
-24-48 hours to take effect, but in actuality it's much faster nowadays and can 
-take a matter of minutes, depending on the registrar. During this propagation 
-process, depending on the DNS server that a device reaches out to, one device 
-may be able to reach the domain at the updated address while another cannot. 
-Eventually the domain will be reachable from a given device and return the 
+domain with the dedicated environment IP as an `A` record. Do this using the 
+domain name registrar of your choice. DNS propagation can take up to 24-48 hours 
+to take effect, but in some cases takes only a few minutes. During this 
+propagation process, depending on the DNS server that a device reaches out to, 
+one device may be able to reach the domain at the updated address while another 
+cannot. Eventually, the domain will be reachable from any device and returns the 
 standard `default backend - 404` error from Kubernetes' ingress controller. Now 
-we are ready for the next step. 
+we you're ready for the next step. 
 
-| **Note:** The dedicated environment IP can be found on the Custom Domains tab 
-| of a service or on the Network page. 
+| **Note:** The dedicated environment IP can be found on a service's Custom 
+| Domains or on the Network page. 
 
 ![Figure 1: This example uses Cloudflare as a domain name registrar to create DNS records.](../../images/dns-records.png)
 
@@ -48,30 +47,28 @@ in `LCP.json`:
 }
 ```
 
-Please note that Google has a restriction that only 50 custom domains can be 
-added to its ingress. 
+Note that Google restricts its Ingress to 50 custom domains. 
 
 ## Verifying a Custom Domain's Status
 
-Once you have added a custom domain, you will need to wait some time before the 
-service endpoint is reachable and stops responding with a 
-`default backend - 404` error. 
+Once you have added a custom domain, you must wait until the service endpoint is 
+reachable and stops responding with a `default backend - 404` error. 
 
-Behind the scenes, a couple of steps are taking place. First the route needs to 
-be added to the ingress controller, which can take around 30 minutes depending 
-on the region. After this, Liferay DXP Cloud reaches out to Let's Encrypt for a 
-SSL Server Certificate. Then Let's Encrypt responds with a challenge. Once the 
-challenge is passed the ingress controller will be updated with the certificate, 
-and the service will be reachable (and secure)! If you try to reach the domain 
-while this challenge process is happening, you will see security warnings in 
-your browser. These can be safely ignored and signify that the process has not 
-been completed yet. 
+Behind the scenes, a couple things occur. First, the route must be added to the 
+Ingress controller, which can take around 30 minutes depending on the region. 
+After this, Liferay DXP Cloud reaches out to 
+[Let's Encrypt](https://letsencrypt.org/) 
+for an SSL Server Certificate. Let's Encrypt responds with a challenge. Once the 
+challenge is passed, the Ingress controller is updated with the certificate and 
+the service is reachable and secure. If you try to reach the domain during the 
+challenge process, your browser will display security warnings. You can safely 
+ignore these warnings because the process is not yet complete. 
 
 Apart from trying to reach the service endpoint through a browser, you can 
 verify its status on the Network page. 
 
-![Figure 3: View all your endpoints and custom domains on the Network page.](../../images/custom-domains-status.png)
+To learn more about using SSL certificates in Liferay DXP Cloud, including 
+how to setup your own custom SSL certificate, see 
+[Load Balancer](/docs/-/knowledge_base/dxp-cloud/load-balancer). 
 
-To find out more about using SSL certificates in Liferay DXP Cloud, including 
-how to setup your own custom SSL certificate, please read 
-[this article](/docs/-/knowledge_base/dxp-cloud/load-balancer). 
+![Figure 3: View all your endpoints and custom domains on the Network page.](../../images/custom-domains-status.png)
