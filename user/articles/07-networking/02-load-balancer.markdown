@@ -4,7 +4,7 @@ header-id: load-balancer
 
 # Load Balancer
 
-The Ingress load balancer gives Internet access to your environment's services 
+The Ingress Load Balancer gives Internet access to your environment's services 
 via proxied HTTP(S) connections. Each load balancer has a static IP that can set 
 up custom domains. 
 
@@ -66,19 +66,19 @@ endpoint named after this pattern:
 Consider this example: 
 
 -   Service: webserver
--   Environment: prd
 -   Project: acme
+-   Environment: prd
 -   Service endpoint name: `webserver-acme-prd.lfr.cloud`
 
 These domains created by DXP Cloud's infrastructure at `.lfr.cloud` are covered 
-by a wildcard certificate that will not display in the SSL certificates section 
-on the Network page. 
+by a wildcard certificate that will not display in the Network page's SSL 
+certificates section. 
 
-In addition, for all custom domains added through the console or `LCP.json`, 
-Liferay DXP Cloud reaches out to 
+Also, for all custom domains added through the console or `LCP.json`, Liferay 
+DXP Cloud reaches out to 
 [Let's Encrypt](https://letsencrypt.org/) 
-for a certificate that covers all custom domains you create and renews 
-automatically. 
+for a certificate that renews automatically and covers all custom domains you 
+create. 
 
 You can, however, add your own SSL certificate to cover any custom domains that 
 you want to create. Only one custom certificate can be added to `LCP.json`, so 
@@ -87,7 +87,7 @@ for a service's custom domains: the one Let's Encrypt provides, or the custom
 one you specify in `LCP.json`. If both exist, your custom certificate takes 
 precedent. 
 
-Note that you must manage your custom certificate, which includes updating it 
+Note that you must manage your custom certificate. This includes updating it 
 when new custom domains are added and renewing it when it expires. To add a 
 custom certificate, provide a key and certificate in Base64 format: 
 
