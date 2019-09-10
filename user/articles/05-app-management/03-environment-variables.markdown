@@ -12,10 +12,16 @@ application via the web console or `LCP.json`.
 
 ## Adding Environment Variables via the Web Console
 
-To add environment variables to your service, go to the service's *Environment 
-Variables* tab and add as many variables as you need. Enter each environment 
-variable as a key-value pair, with the variable name (key) in a field on the 
-left, and the value in the field to its right. 
+To add environment variables to your service, follow these steps: 
+
+1.  Go to the service's *Environment Variables* tab. 
+
+2.  Add as many variables as you need. Enter each environment variable as a 
+    key-value pair, with the variable name (key) in a field on the left, and the 
+    value in the field to its right. 
+
+3.  Click *Save*. The service now restarts with the updated environment 
+    variables. 
 
 ![Figure 1: You can add environment variables via the web console.](../../images/env-vars-add-web-console.png)
 

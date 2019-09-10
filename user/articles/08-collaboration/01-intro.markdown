@@ -43,13 +43,34 @@ environment.
 
 You can assign these roles to team members: 
 
-**Admin:** Has full control over the environment and its members. Only Admins 
-can enable/disable auto scaling, restore from a backup, and add/remove team 
-members. 
+**Admin:** Has full control over the environment and its members. They have 
+exclusive permission to: 
+
+-   Enable/disable auto scaling
+-   Manually downscale a service
+-   Restore from a backup
+-   Change user role
+-   Invite members to the environment
+-   Remove members from the environment
+-   Enable/disable support access
+-   Delete a service
+
+Admins also have the permissions that Contributors have. 
 
 **Contributor:** Can handle application management and most of the development 
 lifecycle, but can't manage team members or perform other Admin-exclusive 
-actions. 
+actions. They have permission to: 
+
+-   Start a backup
+-   Change VPN settings
+-   Restart a service
+-   Deploy a build
+-   Remove themselves from the environment
 
 **Guest:** Has view-only access. Guests can see what's happening in the 
-environment but can't perform actions or make any changes. 
+environment but can't perform actions or make any changes. This includes not 
+having access to service features such as using shell access to run commands, 
+changing/creating environment variables, or specifying custom domains. They only 
+have permission to: 
+
+-   Remove themselves from the environment
