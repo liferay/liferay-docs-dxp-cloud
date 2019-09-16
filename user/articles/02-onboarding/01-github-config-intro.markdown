@@ -33,7 +33,7 @@ If you need help creating, cloning, and pushing GitHub repositories, see
 
 Now you must integrate your new repository with the Jenkins service in DXP 
 Cloud. To do this, you must set up a webhook in GitHub that pushes to the 
-Jenkins service. 
+Jenkins service: 
 
 1.  In GitHub, go to your repository's *Settings* page and select *Webhooks*. 
 
@@ -43,7 +43,8 @@ Jenkins service.
     environment's Jenkins service. For example, the URL of the `infra` 
     environment's `ci` service for a project named `acme` is 
     `https://ci-acme-infra.lfr.cloud/github-webhook/`. Note that the relative 
-    path `github-webhook` is required to integrate with Jenkins' GitHub plugin. 
+    path `github-webhook` is required to integrate with the Jenkins GitHub 
+    plugin. 
 
 4.  In the *Content type* selector menu, select *application/json*. 
 
@@ -67,10 +68,10 @@ Jenkins service.
 
 ### Setting Environment Variables
 
-Lastly, you must set two environment variables in the `ci` service's `LCP.json` 
-to point to your new repository. 
+Lastly, you must set two environment variables in the Jenkins service's 
+`LCP.json` to point to your new repository: 
 
--   `GITHUB_REPOSITORY`: Point to the your new GitHub repository (remote). 
+-   `GITHUB_REPOSITORY`: Point to your new GitHub repository (remote). 
 -   `GITHUB_TOKEN`: Point to a personal access token that you created for your 
     GitHub organization. 
 
