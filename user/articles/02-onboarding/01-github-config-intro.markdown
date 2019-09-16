@@ -73,7 +73,9 @@ Lastly, you must set two environment variables in the Jenkins service's
 
 -   `GITHUB_REPOSITORY`: Point to your new GitHub repository (remote). 
 -   `GITHUB_TOKEN`: Point to a personal access token that you created for your 
-    GitHub organization. 
+    GitHub organization. For instructions on creating and accessing this token, 
+    see 
+    [GitHub's documentation](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line). 
 
 After updating these environment variables, deploy a new build with the changes. 
 Any pushed branches and pull requests in your new repository should now trigger 
