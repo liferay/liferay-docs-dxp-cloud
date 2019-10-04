@@ -93,11 +93,11 @@ retrieve this token from the cookie `access_token` and use it with the
 Here's an example that uses token authentication with the upload API: 
 
 ```bash
-curl -X POST /
-  http://<HOST-NAME>/backup/upload /
-  -H 'Content-Type: multipart/form-data' /
-  -H 'dxpcloud-authorization: Bearer <USER_TOKEN>' /
-  -F 'database=@/my-folder/database.tgz' /
+curl -X POST \
+  http://<HOST-NAME>/backup/upload \
+  -H 'Content-Type: multipart/form-data' \
+  -H 'dxpcloud-authorization: Bearer <USER_TOKEN>' \
+  -F 'database=@/my-folder/database.tgz' \
   -F 'volume=@/my-folder/volume.tgz'
 ```
 
@@ -112,26 +112,9 @@ curl -X POST /
 ### Download Database API
 
 The API for downloading a database contains an endpoint that returns a TGZ file. 
-
-#### Parameters
-
-Name | Type     | Required |
----- | -------- | -------- |
-`id` | `String` | Yes      |
-
-#### curl Example
-
-```bash
-curl -X POST /
-  https://<HOST-NAME>/backup/download/database/:id /
-  -H 'Content-Type: application/json' /
-  -u user@domain.com:password /
-  --output database.tgz
-```
-
-### Download Volume API
-
-The API for downloading a volume contains an endpoint that returns a TGZ file. 
+The `id` parameter represents the backup ID, which you can find on the Backups 
+page. This ID is comprised of three strings separated by two dashes (e.g., 
+`dxpcloud-lqgqnewltbexuewymq-201910031723`). 
 
 #### Parameters
 
@@ -143,9 +126,32 @@ Name | Type     | Required |
 
 ```bash
 curl -X POST \
-  https://<HOST-NAME>/backup/download/volume/:id /
-  -H 'Content-Type: application/json' /
-  -u user@domain.com:password /
+  https://<HOST-NAME>/backup/download/database/:id \
+  -H 'Content-Type: application/json' \
+  -u user@domain.com:password \
+  --output database.tgz
+```
+
+### Download Volume API
+
+The API for downloading a database contains an endpoint that returns a TGZ file. 
+The `id` parameter represents the backup ID, which you can find on the Backups 
+page. This ID is comprised of three strings separated by two dashes (e.g., 
+`dxpcloud-lqgqnewltbexuewymq-201910031723`). 
+
+#### Parameters
+
+Name | Type     | Required |
+---- | -------- | -------- |
+`id` | `String` | Yes      |
+
+#### curl Example
+
+```bash
+curl -X POST \
+  https://<HOST-NAME>/backup/download/volume/:id \
+  -H 'Content-Type: application/json' \
+  -u user@domain.com:password \
   --output volume.tgz
 ```
 
@@ -205,10 +211,10 @@ Name       | Type   | Required |
 **curl Example**
 
 ```bash
-curl -X POST /
-  http://<HOST-NAME>/backup/upload /
-  -H 'Content-Type: multipart/form-data' /
-  -F 'database=@/my-folder/database.tgz' /
-  -F 'volume=@/my-folder/volume.tgz' /
+curl -X POST \
+  http://<HOST-NAME>/backup/upload \
+  -H 'Content-Type: multipart/form-data' \
+  -F 'database=@/my-folder/database.tgz' \
+  -F 'volume=@/my-folder/volume.tgz' \
   -u user@domain.com:password
 ```
