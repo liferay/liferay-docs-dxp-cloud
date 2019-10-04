@@ -112,9 +112,9 @@ curl -X POST \
 ### Download Database API
 
 The API for downloading a database contains an endpoint that returns a TGZ file. 
-The id parameter represents the backup id and can be found on the backups page. 
-It is comprised of three strings separated by two dashes, like this: 
-`dxpcloud-lqgqnewltbexuewymq-201910031723`.
+The `id` parameter represents the backup ID, which you can find on the Backups 
+page. This ID is comprised of three strings separated by two dashes (e.g., 
+`dxpcloud-lqgqnewltbexuewymq-201910031723`). 
 
 #### Parameters
 
@@ -134,10 +134,10 @@ curl -X POST \
 
 ### Download Volume API
 
-The API for downloading a volume contains an endpoint that returns a TGZ file.
-The id parameter represents the backup id and can be found on the backups page. 
-It is comprised of three strings separated by two dashes, like this: 
-`dxpcloud-lqgqnewltbexuewymq-201910031723`. 
+The API for downloading a database contains an endpoint that returns a TGZ file. 
+The `id` parameter represents the backup ID, which you can find on the Backups 
+page. This ID is comprised of three strings separated by two dashes (e.g., 
+`dxpcloud-lqgqnewltbexuewymq-201910031723`). 
 
 #### Parameters
 
