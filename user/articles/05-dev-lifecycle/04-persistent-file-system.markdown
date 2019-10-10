@@ -26,8 +26,8 @@ key for `/liferay/opt/data`:
 
 Because all volumes in an environment are shared, you can share content between 
 services. You do this by setting the service's ID and location (absolute path) 
-of the content to share, in in the service's `LCP.json`. For example, this 
-service (`service1`) shares photos from `/photos`: 
+of the content to share, in the service's `LCP.json`. For example, this service 
+(`service1`) shares photos from `/photos`: 
 
 ```json
 {
