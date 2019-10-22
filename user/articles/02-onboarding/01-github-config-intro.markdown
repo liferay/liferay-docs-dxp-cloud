@@ -5,14 +5,19 @@ header-id: configuring-your-github-repository
 # Configuring Your Github Repository
 
 Upon receiving a DXP Cloud onboarding email, you're provisioned a GitHub 
-repository hosted in the `dxpcloud` organization. This initial repository is 
-only for trial purposes. You must
+repository hosted in the `dxpcloud` organization. This initial repository only 
+exists to help you get started; it expires after 10 days. 
+
+You must
 
 1.  Transfer the initial repository to your own GitHub repository. 
 
 2.  Integrate that repository with the Jenkins (CI) service in DXP Cloud. 
 
 Here, you'll learn how to do this. 
+
+| **Warning:** The initial GitHub repository that DXP Cloud provides for you 
+| expires after 10 days. 
 
 ## Transferring the Repository
 
