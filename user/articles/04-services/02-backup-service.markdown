@@ -65,6 +65,14 @@ Use the following shorthand syntax for common use cases:
 
 `@hourly`: Run at the start of every hour. 
 
+### Scheduling Time Zone
+
+All the backup times displayed on Console are automatically based on the user 
+location. However, take notice the backup frequency will generate backups 
+based on the UTC±00 time zone. When configuring the backup service through the 
+LCP.json, make sure you will consider this specification to determine the 
+right frequency time for your needs. 
+
 ## Backup APIs
 
 The backup service has APIs that you can use to download and upload backups. You 
