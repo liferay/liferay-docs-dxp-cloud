@@ -8,7 +8,53 @@ Liferay Cloud's command-line interface (CLI) is a tool that helps you use and
 manage DXP Cloud. For example, you can use the CLI to create, manage, and scale 
 applications. 
 
-## Installing the Liferay Cloud CLI
+## Private Beta
+
+We are working on a much more reliable and future-proof CLI. That's why we 
+would like to invite you to our _private beta_. If you're interested, please 
+read the following steps. If you prefer using the _stable version_, please skip 
+to the next section. 
+
+### Uninstalling the current version
+
+Before we start, you must uninstall the current version in order to prevent 
+conflicts with the same binary name. 
+
+**MacOS or Linux**
+
+1. Open a terminal and run: `lcp uninstall` 
+2. Verify uninstall is complete by running `lcp` 
+
+**Windows**
+
+1. Go to Control Panel > Programs > Uninstall a program 
+2. Select lcp amd64-installer-0.3 
+3. Click Uninstall 
+4. Confirm uninstall 
+5. Verify uninstall is complete by running lcp or lcp.exe command 
+
+### Installing the beta version
+
+**MacOS or Linux**
+
+Open a terminal and run this command: 
+
+```bash
+curl https://cdn.liferay.cloud/lcp/stable/latest/install.sh -fsSL | bash
+```
+
+If you get a permissions error, try running the same command with `sudo`. 
+
+**Windows**
+
+Download the [installer for Windows](https://cdn.liferay.cloud/lcp/stable/latest/lcp-install.exe). 
+
+**Feedback**
+
+If you have any questions or suggestions, feel free to share your feedback 
+using the support channel or just [send us an email](mailto:zeno.rocha@liferay.com). 
+
+## Installing the Liferay Cloud CLI _(Stable)_
 
 If you use a Unix-like system such as macOS or Linux, open a terminal and run 
 this command: 
