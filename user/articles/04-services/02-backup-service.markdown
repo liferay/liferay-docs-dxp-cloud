@@ -67,11 +67,10 @@ Use the following shorthand syntax for common use cases:
 
 ### Scheduling Time Zone
 
-All the backup times displayed on Console are automatically based on the user 
-location. However, take notice the backup frequency will generate backups 
-based on the UTC±00 time zone. When configuring the backup service through the 
-LCP.json, make sure you will consider this specification to determine the 
-right frequency time for your needs. 
+The backup schedule that appears is based on the user's time zone. The backup
+scheduler, however, generates backups based on the UTC±00 time zone. Please
+consider this when configuring the backup service through the `LCP.json`, so you
+can determine the proper backup schedule for your needs. 
 
 ## Backup APIs
 
