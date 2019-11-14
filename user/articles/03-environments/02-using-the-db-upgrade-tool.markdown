@@ -1,10 +1,10 @@
 # Using the DB Upgrade Tool to Upgrade a DXP Cloud Project
 
-Upgrading the Liferay DXP instance from 7.0 to a newer version in DXP Cloud requires careful planning, testing and execution in order to be successful. There are, however, several features that streamline this process. 
+Upgrading the Liferay DXP service from 7.0 to a newer version on DXP Cloud requires careful planning, testing and execution in order to be successful. There are, however, several features that streamline this process.
 
-Regardless of whether the upgrade is performed in the cloud on or on site, developers should still make multiple backups at each phase of the project.
+Regardless of whether the upgrade is performed on DXP Cloud on or on site, developers should still make multiple backups at each phase of the project.
 
-Important Note: The process below is a workaround and temporary upgrade solution.
+Important Note: The process below is subject to further changes in the future.
 
 
 ## Roadmap
@@ -46,7 +46,7 @@ You can [download these files](https://customer.liferay.com/download) in a Lifer
 
 2.  By default, the folders `common`, `dev`, `uat`, and `prd` are present. You can create a new folder or use an existing one to perform an upgrade. If it's a new folder, it should match the environment being upgraded.
 
-1.  Place the files listed above in the folder where the upgrade is performed. 
+3.  Place the files listed above in the folder where the upgrade is performed (e.g. `prd`).
 
 ### Update the `app-server.properties`
 
